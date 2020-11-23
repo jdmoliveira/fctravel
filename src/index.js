@@ -2,16 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Router, Route, Switch } from 'react-router-dom';
+import history from './history';
+
+import Reports from "./components/Reports";
+import Group from './components/Group';
+import Header from './components/Header'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Router history={history}>
+      <Header/>
+    <Switch>
+      <Route exact path={"/ipm_project/"} component={App} />
+      <Route path={"/ipm_project/reports/"} component={Reports} />
+      <Route path={"/ipm_project/group/"} component={Group} />
+    </Switch>
+  </Router>,
+document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

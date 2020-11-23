@@ -1,0 +1,66 @@
+.Header {
+  top:0;
+  position:sticky;
+  float:left;
+  width:100%;
+
+  display: inline-block;
+  z-index:1;
+
+}
+
+
+.App-header{
+
+  background-color: #65ACD2;
+  height : 15vh;
+
+
+
+}
+
+.Header.App-header.Header-H3{
+    color:white;
+
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Header.App-header.Buttons{
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+  color:white;
+  font-weight: bolder;
+
+  height : 7.5vh;
+  border: none;
+  margin: 3vh;
+  border-radius: 40px;
+  margin-right: 1em;
+}
+.Header.App-header.AccountButtons{
+
+  background-color: #3696CE;
+  outline: #3696CE;
+  color:white;
+  font-weight: bolder;
+  width:7.5vw;
+  height : 7.5vh;
+  margin: 3vh;
+  border: none;
+  border-radius: 40px;
+  margin-right: 1.5em;
+  float:right;
+}
+.Buttons:focus {
+  outline: none;
+}
+
+
+
