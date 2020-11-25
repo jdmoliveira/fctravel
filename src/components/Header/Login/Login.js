@@ -7,18 +7,24 @@ class Login extends Component{
     constructor(props ) {
         super(props);
         this.state = {open : false}
-        this.changeState = this.changeState.bind(this)
-    }
-    changeState=()=>{
-        console.log("entrei")
-        this.state.open = !this.state.open
 
+    }
+
+
+    submit(){
+
+
+    }
+    changeShow(){
+        this.props.onChange()
     }
 
     render() {
+
         return (
-            <Modal show={this.state.open}>
-                <Modal.Header>Login</Modal.Header>
+
+            <Modal show={this.props.show} onHide={()=>this.changeShow()}>
+                <Modal.Header style={{"margin":"auto","fontWeight":"bold","fontSize":"150%"}}>Login</Modal.Header>
                 <Modal.Body>
                     <div className='login-modal-inputs-wrapper'>
                         <Form>
@@ -42,7 +48,16 @@ class Login extends Component{
                         </Form>
                     </div>
                 </Modal.Body>
+                <Modal.Footer>
+
+                    <div className='login-buttons-wrapper'>
+                        <Button type="submit" onClick={this.submit()}>
+                            Submit
+                        </Button>
+                    </div>
+                </Modal.Footer>
             </Modal>
+
         )
     }
 }

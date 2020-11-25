@@ -1,23 +1,32 @@
 import history from "../../history";
 import {AiOutlineHome,AiOutlineQuestionCircle,AiOutlineFieldTime} from "react-icons/ai";
-import React, {useCallback,Component} from "react";
+import React, {Component} from "react";
 import './Header.css'
 import {withRouter} from "react-router-dom";
 import logo from '../../train_logo.png';
 import {BiMapAlt} from "react-icons/bi"
 import Login from './Login/Login'
+import Signup from './Signup/Signup'
 
 
 
 
-class Header extends Component{
-    constructor() {
-        super();
-        this.state = {loginUp: false, page:"/ipm_project/"}
+export class Header extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {loginUp: false, signUp : false, page:window.location.pathname}
     }
     changePage(page){
-        this.state.page = page
+        this.setState({page:page})
         history.push(page)
+    }
+
+    handleLogin=()=>{
+        this.setState({loginUp: !this.state.loginUp})
+    }
+
+    handleSignUp = () =>{
+        this.setState({signUp: !this.state.signUp})
     }
     render(){
 
@@ -56,10 +65,12 @@ class Header extends Component{
                     <button className = "Header App-header Buttons" style ={{"width":"4.5vw"}} onClick={()=>this.changePage("/ipm_project/help/")}>Help <AiOutlineQuestionCircle/></button>
                 }
             </>
-            <button className = "Header App-header AccountButtons" onClick={() => history.push("/ipm_project/reports/")}>Signup</button>
-            <button className = "Header App-header AccountButtons" onClick={this.props.changeState}>Login</button>
+            <button className = "Header App-header AccountButtons" onClick={this.handleSignUp}>Signup</button>
+            <button className = "Header App-header AccountButtons" onClick={this.handleLogin}>Login</button>
         </div>
-        <Login />
+        <Login show = {this.state.loginUp}  onChange ={this.handleLogin}></Login>
+        <Signup show = {this.state.signUp} onChange ={this.handleSignUp}></Signup>
+
 
     </div>
     )
