@@ -18,6 +18,13 @@ class Signup extends Component{
         if(this.state.password !== this.state.confirm){
             alert("The password and the confirmation must be the same")
         }
+        localStorage.setItem("name",this.state.name)
+        localStorage.setItem("password",this.state.password)
+        localStorage.setItem("email",this.state.email)
+        localStorage.setItem("birth",this.state.birthdate)
+        this.props.onChange()
+        alert("Account created!")
+
     }
     changeShow(){
         this.props.onChange();
@@ -28,7 +35,6 @@ class Signup extends Component{
         const input = event.currentTarget
         const value = input.value
         const id = input.id
-        console.log(value)
         switch (id) {
             case "NAME":
                 this.setState({name:value})
@@ -47,7 +53,7 @@ class Signup extends Component{
                 break;
 
         }
-        console.log(this.state)
+
     }
     render() {
 

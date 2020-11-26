@@ -16,6 +16,13 @@ class Login extends Component{
         if(this.state.email === "" || this.state.password === ""){
             alert("Obligatory parameters are missing")
         }
+        if(this.state.email !== localStorage.getItem("email") && this.state.password !== localStorage.getItem("password")){
+            alert("Email or password is wrong")
+        }
+        localStorage.setItem("token", "on")
+        this.props.onChange()
+
+
 
     }
     changeShow(){
@@ -37,6 +44,7 @@ class Login extends Component{
                 break;
 
         }
+
     }
     render() {
 
@@ -69,7 +77,7 @@ class Login extends Component{
                 <Modal.Footer>
 
                     <div className='login-buttons-wrapper'>
-                        <Button type="submit" onClick={this.submit}>
+                        <Button type="submit" onClick={()=>this.submit()}>
                             Submit
                         </Button>
                     </div>
