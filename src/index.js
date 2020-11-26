@@ -19,10 +19,8 @@ ReactDOM.render(
       <Header/>
     <Switch>
         <Route exact path={"/ipm_project/"} component={Homepage} />
-        <Route exact path={"/ipm_project/map/"} component={Homepage} />
         <Route exact path={"/ipm_project/timetables/"} component={Homepage} />
         <Route exact path={"/ipm_project/profile/"} component={Profile} />
-        <Route exact path={"/ipm_project/"} component={Homepage} />
         <Route exact path={"/ipm_project/map"} component={Map} />
     </Switch>
   </Router>,
