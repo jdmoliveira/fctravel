@@ -28,6 +28,8 @@ export class Header extends Component{
     handleSignUp = () =>{
         this.setState({signUp: !this.state.signUp})
     }
+
+
     render(){
 
     return(
