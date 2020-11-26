@@ -3,9 +3,15 @@ import React, {useCallback,Component} from "react";
 import {BiMapAlt} from "react-icons/bi";
 import {AiOutlineHome,AiOutlineQuestionCircle,AiOutlineFieldTime} from "react-icons/ai";
 import './Homepage.css'
+<<<<<<< HEAD
 //import arrow_right from '/imgs/arrow_right.png';
 //import arrow_left from '/imgs/arrow_left.png';
 
+=======
+import {withRouter} from "react-router-dom";
+import {BiMapAlt} from "react-icons/bi"
+import Footer from './Footer'
+>>>>>>> e8b4f309f7cdeb15c74e8a0c886f2f07290048ff
 class Homepage extends Component {
 
     constructor() {
@@ -49,6 +55,7 @@ class Homepage extends Component {
 
             <button className = "FindButton" onClick={() => history.push("/ipm_project/find/")}>Find</button>
           </div>
+
         </div>
 
       )

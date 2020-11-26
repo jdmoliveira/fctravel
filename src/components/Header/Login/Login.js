@@ -4,21 +4,40 @@ import {Button, Form, Modal} from 'react-bootstrap';
 
 
 class Login extends Component{
+
     constructor(props ) {
         super(props);
-        this.state = {open : false}
+        this.state = {open : false, email : "", password:""}
 
     }
 
 
     submit(){
-
+        if(this.state.email === "" || this.state.password === ""){
+            alert("Obligatory parameters are missing")
+        }
 
     }
     changeShow(){
         this.props.onChange()
     }
+    updateInfo(event){
+        event.preventDefault()
+        event.stopPropagation()
+        const input = event.currentTarget
+        const value = input.value
+        const id = input.id
 
+        switch (id) {
+            case "EMAIL":
+                this.setState({email:value})
+                break;
+            case "PASSWORD":
+                this.setState({password:value})
+                break;
+
+        }
+    }
     render() {
 
         return (
@@ -28,14 +47,13 @@ class Login extends Component{
                 <Modal.Body>
                     <div className='login-modal-inputs-wrapper'>
                         <Form>
-                            <Form.Group>
-
+                            <Form.Group controlId="EMAIL">
                                 <Form.Text>E-mail</Form.Text>
-                                <Form.Control type="username" placeholder="Insert your e-mail"/>
+                                <Form.Control type="username" placeholder="Insert your e-mail" onChange={(event)=>this.updateInfo(event)}/>
                             </Form.Group>
-                            <Form.Group>
+                            <Form.Group controlId = "PASSWORD">
                                 <Form.Text>Password</Form.Text>
-                                <Form.Control type="password" placeholder="Password"/>
+                                <Form.Control type="password" placeholder="Password" onChange={(event)=>this.updateInfo(event)}/>
                                 <span style={
                                     {
                                         color: 'dodgerblue',
@@ -51,7 +69,7 @@ class Login extends Component{
                 <Modal.Footer>
 
                     <div className='login-buttons-wrapper'>
-                        <Button type="submit" onClick={this.submit()}>
+                        <Button type="submit" onClick={this.submit}>
                             Submit
                         </Button>
                     </div>
