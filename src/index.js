@@ -8,19 +8,16 @@ import history from './history';
 
 import Header from './components/Header/Header'
 import Homepage from './components/Homepage'
+import Map from './components/Map'
 
 
 ReactDOM.render(
   <Router history={history}>
       <Header/>
     <Switch>
-      <Route exact path={"/ipm_project/"} component={App} />
+      <Route exact path={"/ipm_project/"} component={Homepage} />
+      <Route path={"/ipm_project/map"} component={Map} />
     </Switch>
   </Router>,
 document.getElementById('root')
-);
-
-ReactDOM.render(
-  <Homepage/>,
-document.getElementById('child')
 );
