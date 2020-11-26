@@ -2,3 +2,7 @@
     width: 100%;
     height: 100vh;
 }
+.MapDisplay{
+    z-index:0;
+    position:relative;
+}

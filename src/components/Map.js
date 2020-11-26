@@ -17,14 +17,15 @@ class Map extends React.Component {
         navigator.geolocation.getCurrentPosition((position) => {
             localStorage.setItem('latitude', position.coords.latitude);
             localStorage.setItem('longitude', position.coords.longitude);
-            window.location.reload();
+            if(localStorage.getItem('latitude') == null)
+                window.location.reload();
         });
     }
 
     render() {
         const position = [localStorage.getItem('latitude'), localStorage.getItem('longitude')];
         return (
-            <div>
+            <div className = "MapDisplay">
                 <MapContainer center={position} zoom={17} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
