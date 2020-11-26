@@ -4,7 +4,6 @@ import {BiMapAlt} from "react-icons/bi";
 import {AiOutlineHome,AiOutlineQuestionCircle,AiOutlineFieldTime} from "react-icons/ai";
 import './Homepage.css'
 import {withRouter} from "react-router-dom";
-import {BiMapAlt} from "react-icons/bi"
 import Footer from './Footer'
 class Homepage extends Component {
 
