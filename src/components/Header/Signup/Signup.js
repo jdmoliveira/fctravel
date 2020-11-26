@@ -17,6 +17,9 @@ class Signup extends Component{
     changeShow(){
         this.props.onChange();
     }
+    checkValidity(){
+
+    }
     render() {
 
         return (

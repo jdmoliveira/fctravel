@@ -1,11 +1,11 @@
 import history from "../history";
 import {AiOutlineHome,AiOutlineQuestionCircle,AiOutlineFieldTime} from "react-icons/ai";
-import React from "react";
+import React,{Component} from "react";
 import './Footer.css'
 import {withRouter} from "react-router-dom";
-import bus_logo from '../bus_logo.png';
-import boat_logo from '../boat_logo.png';
-import train_logo from '../train_logo2.png';
+import bus_logo from '../images/bus_logo.png';
+import boat_logo from '../images/boat_logo.png';
+import train_logo from '../images/train_logo2.png';
 import {BiMapAlt} from "react-icons/bi"
 
 class Footer extends Component {

@@ -4,7 +4,7 @@ import React, {useCallback,Component} from "react";
 import './Homepage.css'
 import {withRouter} from "react-router-dom";
 import {BiMapAlt} from "react-icons/bi"
-
+import Footer from './Footer'
 class Homepage extends Component {
 
     constructor() {
@@ -37,6 +37,7 @@ class Homepage extends Component {
 
             <button className = "FindButton" onClick={() => history.push("/ipm_project/find/")}>Find</button>
           </div>
+
         </div>
 
       )

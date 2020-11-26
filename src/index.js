@@ -14,13 +14,9 @@ ReactDOM.render(
   <Router history={history}>
       <Header/>
     <Switch>
-      <Route exact path={"/ipm_project/"} component={App} />
+      <Route exact path={"/ipm_project/"} component={Homepage} />
     </Switch>
   </Router>,
 document.getElementById('root')
 );
 
-ReactDOM.render(
-  <Homepage/>,
-document.getElementById('child')
-);
