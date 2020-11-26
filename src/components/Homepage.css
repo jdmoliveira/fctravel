@@ -9,6 +9,24 @@
   transform: translate(-50%, -50%);
 }
 
+.Arrows {
+
+
+}
+
+.SwitchButton {
+    background-color: #11111;
+    transform:scale(1);
+    border: none;
+}
+
+.ArrowLeft {
+
+}
+
+.ArrowRight {
+
+}
 
 .DepartureBox {
   color:black;
