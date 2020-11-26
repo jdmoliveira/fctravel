@@ -7,6 +7,8 @@ import logo from '../../train_logo.png';
 import {BiMapAlt} from "react-icons/bi"
 import Login from './Login/Login'
 import Signup from './Signup/Signup'
+import Profile from './Profile/Profile'
+import {CgProfile} from 'react-icons/cg'
 
 
 
@@ -28,6 +30,8 @@ export class Header extends Component{
     handleSignUp = () =>{
         this.setState({signUp: !this.state.signUp})
     }
+   
+
 
 
     render(){
@@ -67,12 +71,24 @@ export class Header extends Component{
                     <button className = "Header App-header Buttons" style ={{"width":"4.5vw"}} onClick={()=>this.changePage("/ipm_project/help/")}>Help <AiOutlineQuestionCircle/></button>
                 }
             </>
-            <button className = "Header App-header AccountButtons" onClick={this.handleSignUp}>Signup</button>
-            <button className = "Header App-header AccountButtons" onClick={this.handleLogin}>Login</button>
+            <>
+                {localStorage.getItem("token") !== "on" ?
+                    <>
+                        <button className = "Header App-header AccountButtons" onClick={this.handleSignUp}>Signup</button>
+                        <button className = "Header App-header AccountButtons" onClick={this.handleLogin}>Login</button>
+                    </>
+                    :
+                    <>
+                        {this.state.page === "/ipm_project/profile/"?
+                            <button className = "Header App-header Buttons" style ={{"float":"right","width":"auto","fontSize":"160%","textDecoration":"underline","pointerEvents":"none"}} > <CgProfile style={{"transform":"scale(1.5)","marginLeft":"-16vw"}}/>            {localStorage.getItem("name")}</button>
+                            :<button className = "Header App-header Buttons" style ={{"float":"right","width":"auto","fontSize":"160%"}} onClick={()=>this.changePage("/ipm_project/profile/")}> <CgProfile style={{"transform":"scale(1.5)","marginLeft":"-16vw"}}/>            {localStorage.getItem("name")}</button>
+                            }
+                    </>
+                }
+            </>
         </div>
-        <Login show = {this.state.loginUp}  onChange ={this.handleLogin}></Login>
+        <Login show = {this.state.loginUp}  onChange ={this.handleLogin} ></Login>
         <Signup show = {this.state.signUp} onChange ={this.handleSignUp}></Signup>
-
 
     </div>
     )
