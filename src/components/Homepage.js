@@ -17,12 +17,12 @@ class Homepage extends Component {
 
     switch(mode) {
       if (mode.equals("l")) {
-        n = departure;
+        var n = departure;
         departure = arrival;
         arrival = n;
       }
       else {
-        n = arrival;;
+        var n = arrival;
         arrival = departure;
         departure = n;
       }
@@ -31,7 +31,6 @@ class Homepage extends Component {
     insertDeparture(input) {
       departure = input;
     }
-
 
     insertArrival(input) {
       arrival = input;
@@ -45,17 +44,17 @@ class Homepage extends Component {
             <form className = "DepartureBox">
               <label>
                 <p className = "BoxText"> Departure </p>
-                <input type="text" name="departure" id="input" name="input" onInput="insertDeparture('input');"/>
+                <input type="text" id="input" name="input" onInput="insertDeparture('input');"/>
               </label>
             </form>
 
             <div className = "ArrowLeft">
-              <button className = "SwitchButton" onClick={() => switch("l"); }>
+              <button className = "SwitchButton" onClick={() => "switch('l');" }>
                 <img src={process.env.PUBLIC_URL + '/imgs/arrow_left.png'} style={{opacity: 1,transform:"scale(0.05)"}} className="ArrowLeft" />
               </button>
             </div>
             <div className = "ArrowRight">
-              <button className = "SwitchButton" onClick={() => switch("r")}>
+              <button className = "SwitchButton" onClick={() => "switch('r');"}>
                 <img src={process.env.PUBLIC_URL + '/imgs/arrow_right.png'} style={{opacity: 1,transform:"scale(0.05)"}} className="ArrowLeft" />
               </button>
             </div>
@@ -63,11 +62,11 @@ class Homepage extends Component {
             <form className = "ArrivalBox">
               <label>
                 <p className = "BoxText"> Arrival </p>
-                <input type="text" name="arrival" id="input" name="input" onInput="insertArrival('input');"/>
+                <input type="text" id="input" name="input" onInput="insertArrival('input');"/>
               </label>
             </form>
 
-            <button className = "FindButton" onClick={() => history.push("/ipm_project/find//{{departure}}/{{arrival}}")}>Find</button>
+            <button className = "FindButton" onClick={() => history.push("/ipm_project/find/"+departure+"/"+arrival)}>Find</button>
           </div>
 
         </div>
