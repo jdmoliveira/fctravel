@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from './train_logo.png';
 import './App.css';
 import { withRouter } from "react-router-dom";
+import "react-datetime/css/react-datetime.css";
 
 class App extends Component {
     render() {
