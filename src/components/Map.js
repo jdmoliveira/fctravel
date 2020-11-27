@@ -8,18 +8,29 @@ class Map extends React.Component {
     constructor() {
         super();
         if (localStorage.getItem('latitude') == null) {
-            localStorage.setItem('latitude', 38.716);
-            localStorage.setItem('longitude', -9.133);
+            //default values
+            localStorage.setItem('latitude', 0);
+            localStorage.setItem('longitude', 0);
         }
     }
 
     componentDidMount() {
+<<<<<<< Updated upstream
         navigator.geolocation.getCurrentPosition((position) => {
             localStorage.setItem('latitude', position.coords.latitude);
             localStorage.setItem('longitude', position.coords.longitude);
             if(localStorage.getItem('latitude') == null)
                 window.location.reload();
         });
+=======
+        if (localStorage.getItem('latitude') == 0) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                localStorage.setItem('latitude', position.coords.latitude);
+                localStorage.setItem('longitude', position.coords.longitude);
+                window.location.reload();
+            });
+        }
+>>>>>>> Stashed changes
     }
 
     render() {
