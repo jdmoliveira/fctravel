@@ -1,6 +1,6 @@
-#container {
-    width: 100%;
-    height: 100vh;
+#container2 {
+    width: 50%;
+    height: 50vh;
 }
 .MapDisplay{
     z-index:0;

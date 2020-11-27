@@ -12,16 +12,30 @@ class Signup extends Component{
 
 
     submit(){
+        const whereAt = this.state.email.split("@")
+        const yearArr = this.state.birthdate.toString().split("-");
         if(this.state.password ==="" || this.state.confirm === "" || this.state.name === "" || this.state.email === ""){
             alert("There are obligatory parameters missing")
+            return 0;
         }
         if(this.state.password !== this.state.confirm){
             alert("The password and the confirmation must be the same")
+            return 0;
+        }
+        if(whereAt.length !== 2 || whereAt[1].split(".").length !== 2 ){
+            alert("Invalid e-mail")
+            return 0;
+        }
+
+        if(yearArr[0] >= 2013){
+            alert("Invalid birthdate")
+            return 0;
         }
         localStorage.setItem("name",this.state.name)
         localStorage.setItem("password",this.state.password)
         localStorage.setItem("email",this.state.email)
         localStorage.setItem("birth",this.state.birthdate)
+        localStorage.setItem("userType", "Default")
         this.props.onChange()
         alert("Account created!")
 

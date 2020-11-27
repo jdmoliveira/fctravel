@@ -15,9 +15,11 @@ class Login extends Component{
     submit(){
         if(this.state.email === "" || this.state.password === ""){
             alert("Obligatory parameters are missing")
+            return 0;
         }
         if(this.state.email !== localStorage.getItem("email") && this.state.password !== localStorage.getItem("password")){
             alert("Email or password is wrong")
+            return 0;
         }
         localStorage.setItem("token", "on")
         this.props.onChange()

@@ -12,6 +12,7 @@ import Homepage from './components/Homepage'
 import Profile from "./components/Header/Profile/Profile";
 import Map from './components/Map'
 import Timetables from './components/Timetables';
+import Find from './components/Find'
 
 
 
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Route exact path={"/ipm_project/profile/"} component={Profile} />
         <Route exact path={"/ipm_project/map"} component={Map} />
         <Route exact path={"/ipm_project/timetables"} component={Timetables} />
+        <Route exact path={"/ipm_project/find"} component={Find} />
     </Switch>
   </Router>,
 document.getElementById('root')
