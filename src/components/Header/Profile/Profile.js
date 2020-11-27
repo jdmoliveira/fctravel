@@ -104,7 +104,7 @@ class Profile extends Component {
                             <button className = "SaveChanges" onClick={() => this.saveChanges()} >Save</button>
                         }
                     </>
-                    <button className = "CancelChanges" onClick={() => this.logout()}>Cancel</button>
+                    <button className = "CancelChanges" onClick={() => history.push("/ipm_project/")}>Cancel</button>
                 </div>
                 <p style={{"float":"right","marginTop":"75vh","color":"#C1CCC6"}}>*Get discounts on all your travels by sending us a PDF file with proof of enrollment      *</p>
 
