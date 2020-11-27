@@ -5,15 +5,35 @@ import {AiOutlineHome,AiOutlineQuestionCircle,AiOutlineFieldTime} from "react-ic
 import './Homepage.css'
 import {withRouter} from "react-router-dom";
 import Footer from './Footer'
+
+var departure = "";
+var arrival = "";
+
 class Homepage extends Component {
 
     constructor() {
         super();
     }
 
-    changePage(page) {
-        this.state.page = page
-        history.push(page)
+    switch(mode) {
+      if (mode.equals("l")) {
+        var n = departure;
+        departure = arrival;
+        arrival = n;
+      }
+      else {
+        var n = arrival;
+        arrival = departure;
+        departure = n;
+      }
+    }
+
+    insertDeparture(input) {
+      departure = input;
+    }
+
+    insertArrival(input) {
+      arrival = input;
     }
 
     render() { // arrows TODO, logos TODO
@@ -24,17 +44,17 @@ class Homepage extends Component {
             <form className = "DepartureBox">
               <label>
                 <p className = "BoxText"> Departure </p>
-                <input type="text" name="departure" />
+                <input type="text" id="input" name="input" onInput="insertDeparture('input');"/>
               </label>
             </form>
 
             <div className = "ArrowLeft">
-              <button className = "SwitchButton" onClick={() => history.push("/ipm_project/find/")}>
+              <button className = "SwitchButton" onClick={() => "switch('l');" }>
                 <img src={process.env.PUBLIC_URL + '/imgs/arrow_left.png'} style={{opacity: 1,transform:"scale(0.05)"}} className="ArrowLeft" />
               </button>
             </div>
             <div className = "ArrowRight">
-              <button className = "SwitchButton" onClick={() => history.push("/ipm_project/find/")}>
+              <button className = "SwitchButton" onClick={() => "switch('r');"}>
                 <img src={process.env.PUBLIC_URL + '/imgs/arrow_right.png'} style={{opacity: 1,transform:"scale(0.05)"}} className="ArrowLeft" />
               </button>
             </div>
@@ -42,11 +62,11 @@ class Homepage extends Component {
             <form className = "ArrivalBox">
               <label>
                 <p className = "BoxText"> Arrival </p>
-                <input type="text" name="arrival" />
+                <input type="text" id="input" name="input" onInput="insertArrival('input');"/>
               </label>
             </form>
 
-            <button className = "FindButton" onClick={() => history.push("/ipm_project/find/")}>Find</button>
+            <button className = "FindButton" onClick={() => history.push("/ipm_project/find/"+departure+"/"+arrival)}>Find</button>
           </div>
 
         </div>
