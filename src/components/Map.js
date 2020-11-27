@@ -34,7 +34,7 @@ class Map extends React.Component {
         const position = [localStorage.getItem('latitude'), localStorage.getItem('longitude')];
         return (
             <div className = "MapDisplay">
-                <MapContainer center={position} zoom={17} scrollWheelZoom={false}>
+                <MapContainer id='container' center={position} zoom={17} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=70e9fe8acc0a4e7694a75fe6210ce615"

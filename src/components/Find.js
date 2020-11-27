@@ -26,12 +26,13 @@ class Find extends React.Component {
         const position = [38.716, -9.133];
         return (
             <div className="MapDisplay">
-                <MapContainer center={position} zoom={12} scrollWheelZoom={false} ref={ (ref) => this.map=ref }>
+                <MapContainer id='container2' center={position} zoom={12} scrollWheelZoom={false} ref={(ref) => this.map = ref}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=70e9fe8acc0a4e7694a75fe6210ce615"
                     />
                 </MapContainer>,
+
             </div>
         )
     }
