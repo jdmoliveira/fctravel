@@ -66,7 +66,7 @@ class Homepage extends Component {
               </label>
             </form>
 
-            <button className = "FindButton" onClick={() => history.push("/ipm_project/find/"+departure+"/"+arrival)}>Find</button>
+            <button className = "FindButton" onClick={() => history.push("/ipm_project/find"+departure+"/"+arrival)}>Find</button>
           </div>
 
         </div>
