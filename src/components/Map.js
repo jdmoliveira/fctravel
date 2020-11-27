@@ -15,14 +15,12 @@ class Map extends React.Component {
     }
 
     componentDidMount() {
-<<<<<<< Updated upstream
         navigator.geolocation.getCurrentPosition((position) => {
             localStorage.setItem('latitude', position.coords.latitude);
             localStorage.setItem('longitude', position.coords.longitude);
             if(localStorage.getItem('latitude') == null)
                 window.location.reload();
         });
-=======
         if (localStorage.getItem('latitude') == 0) {
             navigator.geolocation.getCurrentPosition((position) => {
                 localStorage.setItem('latitude', position.coords.latitude);
@@ -30,7 +28,6 @@ class Map extends React.Component {
                 window.location.reload();
             });
         }
->>>>>>> Stashed changes
     }
 
     render() {
