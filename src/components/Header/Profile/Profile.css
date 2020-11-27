@@ -1,14 +1,15 @@
 .ScreenProf {
-
+    margin-top:5vh;
     border: solid;
     border-radius: 15px;
     position: absolute;
     top: 50%;
     left: 50%;
-    width:80%;
-    height:50%;
+    width:60%;
+    height:65vh;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+
 }
 .Logout {
     background-color: darkred;
@@ -17,10 +18,64 @@
     font-weight: bolder;
     width:6vw;
     height : 4vh;
-    margin: 1vh;
     border: none;
     border-radius: 40px;
-    margin-right: 8em;
-
+    margin-left: 4em;
+    margin-top:8vh;
+    float:left;
+    transform:scale(1.2);
+}
+.CancelChanges{
+    background-color: #C1CCC6;
+    outline: #C1C9C1;
+    color:white;
+    font-weight: bolder;
+    width:6vw;
+    height : 4vh;
+    border: none;
+    border-radius: 40px;
+    margin-right: 2em;
+    margin-top: 8vh;
     float:right;
+    transform:scale(1.2);
+}
+.SaveChanges{
+    background-color: #5DDA94;
+    outline: #65E264;
+    color:white;
+    font-weight: bolder;
+    width:6vw;
+    height : 4vh;
+    border: none;
+    border-radius: 40px;
+    margin-right: 4em;
+    margin-top:8vh;
+    float:right;
+    transform:scale(1.2);
+}
+.SaveChangesNot{
+    background-color: #5DDA94;
+    outline: #65E264;
+    color:white;
+    font-weight: bolder;
+    width:6vw;
+    height : 4vh;
+    border: none;
+    border-radius: 40px;
+    margin-right: 4em;
+    margin-top:8vh;
+    float:right;
+    transform:scale(1.2);
+}
+.SaveChangesNot:Hover{
+    cursor:not-allowed;
+}
+.SaveChanges:focus {
+    outline: none;
+}
+.CancelChanges:focus {
+    outline: none;
+}
+.Logout:focus {
+    outline: none;
 }
