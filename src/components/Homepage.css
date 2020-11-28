@@ -1,12 +1,13 @@
 .Screen {
   float: middle;
   border: solid;
-  border-radius: 15px;
+  border-radius: 10px;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 44%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  transform: scale(1.5);
   display:flex;
   flex-direction:row;
 }

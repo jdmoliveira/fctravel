@@ -39,7 +39,7 @@ class Homepage extends Component {
 
     find() {
       if (departure == "" || arrival == "") {
-        alert("Departure and arrival must be defined!");
+        alert("Both departure and arrival must be defined.");
       }
       else {
         history.push({
@@ -54,7 +54,7 @@ class Homepage extends Component {
         <div className = "">
           <div className = "Screen">
             <Dropdown onSelect={this.insertDeparture}>
-              <Dropdown.Toggle variant="success" id="departure">
+              <Dropdown.Toggle variant="secondary" id="departure">
                 Departure
               </Dropdown.Toggle>
 
@@ -65,7 +65,7 @@ class Homepage extends Component {
             </Dropdown>
 
             <Dropdown onSelect={this.insertArrival}>
-              <Dropdown.Toggle variant="success" id="arrival">
+              <Dropdown.Toggle variant="secondary" id="arrival">
                 Arrival
               </Dropdown.Toggle>
 
@@ -74,8 +74,7 @@ class Homepage extends Component {
               </Dropdown.Menu>
             </Dropdown>
 
-            <Button as="input" type="submit" value="Find" onClick={this.find}/>
-
+            <Button as="input" type="submit" value="Find" onClick={this.find} style={{transform:"scale(0.8)"}}/>
           </div>
 
           <Footer/>
