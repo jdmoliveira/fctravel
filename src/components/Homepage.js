@@ -53,26 +53,27 @@ class Homepage extends Component {
       return (
         <div className = "">
           <div className = "Screen">
-
-            <Dropdown onSelect={this.insertDeparture}>
-              <Dropdown.Toggle variant="secondary" id="departure">
-                Departure
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item > Oriente </Dropdown.Item>
-                <Dropdown.Item > Setúbal </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown onSelect={this.insertArrival}>
-              <Dropdown.Toggle variant="secondary" id="arrival">
-                Arrival
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item > FCT </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
+            <Card>
+              <Dropdown onSelect={this.insertDeparture}>
+                <Dropdown.Toggle variant="secondary" id="departure">
+                  Departure
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item > Oriente </Dropdown.Item>
+                  <Dropdown.Item > Setúbal </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Card>
+            <Card>
+              <Dropdown onSelect={this.insertArrival}>
+                <Dropdown.Toggle variant="secondary" id="arrival">
+                  Arrival
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item > FCT </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Card>
             <Button as="input" type="submit" value="Find" onClick={this.find} style={{transform:"scale(0.8)"}}/>
 
           </div>
