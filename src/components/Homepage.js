@@ -1,10 +1,9 @@
 import history from "../history";
 import React, {useCallback,Component} from "react";
-import {BiMapAlt} from "react-icons/bi";
-import {AiOutlineHome,AiOutlineQuestionCircle,AiOutlineFieldTime} from "react-icons/ai";
-import './Homepage.css'
+import { Dropdown, Button }  from 'react-bootstrap';
+import './Homepage.css';
 import {withRouter} from "react-router-dom";
-import Footer from './Footer'
+import Footer from './Footer';
 
 var departure = "";
 var arrival = "";
@@ -36,39 +35,43 @@ class Homepage extends Component {
       arrival = input;
     }
 
-    render() { // arrows TODO, logos TODO
+    find() {
+      history.push({
+        pathname: "/ipm_project/find",
+        state: { departure: departure , arrival: arrival}
+      });
+    }
+
+    render() {
       return (
-        <div >
+        <div className = "">
           <div className = "Screen">
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Departure
+              </Dropdown.Toggle>
 
-            <form className = "DepartureBox">
-              <label>
-                <p className = "BoxText"> Departure </p>
-                <input type="text" id="input" name="input" onInput="insertDeparture('input');"/>
-              </label>
-            </form>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={()=> insertDeparture("oriente")}> Oriente </Dropdown.Item>
+                <Dropdown.Item onClick={()=> insertDeparture("setubal")}> Setúbal </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
 
-            <div className = "ArrowLeft">
-              <button className = "SwitchButton" onClick={() => "switch('l');" }>
-                <img src={process.env.PUBLIC_URL + '/imgs/arrow_left.png'} style={{opacity: 1,transform:"scale(0.05)"}} className="ArrowLeft" />
-              </button>
-            </div>
-            <div className = "ArrowRight">
-              <button className = "SwitchButton" onClick={() => "switch('r');"}>
-                <img src={process.env.PUBLIC_URL + '/imgs/arrow_right.png'} style={{opacity: 1,transform:"scale(0.05)"}} className="ArrowLeft" />
-              </button>
-            </div>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Arrival
+              </Dropdown.Toggle>
 
-            <form className = "ArrivalBox">
-              <label>
-                <p className = "BoxText"> Arrival </p>
-                <input type="text" id="input" name="input" onInput="insertArrival('input');"/>
-              </label>
-            </form>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={()=> insertArrival("fct")}> FCT </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
 
-            <button className = "FindButton" onClick={() => history.push("/ipm_project/find"+departure+"/"+arrival)}>Find</button>
+            <Button as="input" type="submit" value="Find" onClick={() => history.push("/ipm_project/find"+departure+"/"+arrival)}/>
+
           </div>
-         
+
+          <Footer/>
 
         </div>
 
