@@ -46,28 +46,28 @@ class Homepage extends Component {
       return (
         <div className = "">
           <div className = "Screen">
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown onSelect={this.insertDeparture}>
+              <Dropdown.Toggle variant="success" id="departure">
                 Departure
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item onClick={()=> insertDeparture("oriente")}> Oriente </Dropdown.Item>
-                <Dropdown.Item onClick={()=> insertDeparture("setubal")}> Setúbal </Dropdown.Item>
+                <Dropdown.Item > Oriente </Dropdown.Item>
+                <Dropdown.Item > Setúbal </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown onSelect={this.insertArrival}>
+              <Dropdown.Toggle variant="success" id="arrival">
                 Arrival
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item onClick={()=> insertArrival("fct")}> FCT </Dropdown.Item>
+                <Dropdown.Item > FCT </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
-            <Button as="input" type="submit" value="Find" onClick={() => history.push("/ipm_project/find"+departure+"/"+arrival)}/>
+            <Button as="input" type="submit" value="Find" onClick={this.find}/>
 
           </div>
 
