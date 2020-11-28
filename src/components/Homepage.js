@@ -12,6 +12,8 @@ class Homepage extends Component {
 
     constructor() {
         super();
+        departure = "";
+        arrival = "";
     }
 
     switch(mode) {
@@ -35,11 +37,16 @@ class Homepage extends Component {
       arrival = input;
     }
 
-    find() { // TODO handle departure and arrival not defined, alert
-      history.push({
-        pathname: "/ipm_project/find",
-        state: { departure: departure , arrival: arrival}
-      });
+    find() {
+      if (departure == "" || arrival == "") {
+        alert("Departure and arrival must be defined!");
+      }
+      else {
+        history.push({
+          pathname: "/ipm_project/find",
+          state: { departure: departure , arrival: arrival}
+        });
+      }
     }
 
     render() {
