@@ -35,7 +35,7 @@ class Homepage extends Component {
       arrival = input;
     }
 
-    find() {
+    find() { // TODO handle departure and arrival not defined, alert
       history.push({
         pathname: "/ipm_project/find",
         state: { departure: departure , arrival: arrival}
