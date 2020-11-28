@@ -1,6 +1,6 @@
 import history from "../history";
 import React, {useCallback,Component} from "react";
-import { Dropdown, Button }  from 'react-bootstrap';
+import { Dropdown, Button, Card }  from 'react-bootstrap';
 import './Homepage.css';
 import {withRouter} from "react-router-dom";
 import Footer from './Footer';
@@ -53,11 +53,11 @@ class Homepage extends Component {
       return (
         <div className = "">
           <div className = "Screen">
+
             <Dropdown onSelect={this.insertDeparture}>
               <Dropdown.Toggle variant="secondary" id="departure">
                 Departure
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
                 <Dropdown.Item > Oriente </Dropdown.Item>
                 <Dropdown.Item > Setúbal </Dropdown.Item>
@@ -68,13 +68,13 @@ class Homepage extends Component {
               <Dropdown.Toggle variant="secondary" id="arrival">
                 Arrival
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
                 <Dropdown.Item > FCT </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
             <Button as="input" type="submit" value="Find" onClick={this.find} style={{transform:"scale(0.8)"}}/>
+
           </div>
 
           <Footer/>
@@ -86,3 +86,21 @@ class Homepage extends Component {
 }
 
 export default withRouter(Homepage);
+
+/*
+<Card style={{ float: 'middle',  border: 'solid', 'border-radius': '10px',position: 'absolute',
+  'top': '10%',
+  'left': '44%',
+  '-ms-transform': 'translate(-50%, -50%)',
+  'transform': 'translate(-50%, -50%)',
+  'transform': 'scale(1.5)',
+  'display':'flex',
+  'flex-direction':'row' }}>
+
+  <Card.Body>
+
+
+  </Card.Body>
+
+</Card>
+*/
