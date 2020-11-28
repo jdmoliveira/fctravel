@@ -38,7 +38,7 @@ export class Header extends Component{
 
     return(
 
-    <div className = "Header" >
+    <div className = "Header"  >
         <div className="Header App-header">
             <img src={logo} style={{"transform":"scale(0.3)","float":"left", "marginTop":"-12vh","marginLeft":"-4vw"}} className="App-logo" alt="logo" />
             <h3 style={{"color":"white","fontSize":"250%","marginTop":"4vh","float":"left","marginLeft":"-4vw"}}>FCTravel</h3>

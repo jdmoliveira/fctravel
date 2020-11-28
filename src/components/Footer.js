@@ -22,9 +22,9 @@ class Footer extends Component {
   render() {
     return(
     <div className = "Footer" >
-      <img src={bus_logo} style={{"transform":"scale(0.6)","float":"left", "marginBottom":"-12vh","marginLeft":"-4vw"}} className="Bus-logo" alt="bus_logo" />
-      <img src={boat_logo} style={{"transform":"scale(0.6)","float":"middle", "marginBottom":"-12vh","marginLeft":"-4vw"}} className="Boat-logo" alt="boat_logo" />
-      <img src={train_logo} style={{"transform":"scale(0.6)","float":"right", "marginBottom":"-12vh","marginLeft":"-4vw"}} className="Train-logo" alt="train_logo" />
+      <img src={bus_logo} style={{"transform":"scale(1.2)", "bottom":"0"}} className="Bus-logo" alt="bus_logo" />
+      <img src={boat_logo} style={{ "marginTop":"64vh","float":"left"}} className="Boat-logo" alt="boat_logo" />
+      <img src={train_logo} style={{"transform":"scale(1.5)scaleX(-1)", "marginTop":"64vh","marginLeft":"58vw"}} className="Train-logo" alt="train_logo" />
     </div>
     )
   }

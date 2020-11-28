@@ -38,7 +38,7 @@ class Homepage extends Component {
 
     render() { // arrows TODO, logos TODO
       return (
-        <div className = "">
+        <div >
           <div className = "Screen">
 
             <form className = "DepartureBox">
@@ -68,6 +68,7 @@ class Homepage extends Component {
 
             <button className = "FindButton" onClick={() => history.push("/ipm_project/find"+departure+"/"+arrival)}>Find</button>
           </div>
+         
 
         </div>
 
