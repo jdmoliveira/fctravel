@@ -20,6 +20,7 @@ ReactDOM.render(
   <Router history={history}>
       <Header/>
     <Switch>
+        <Route exact path={"/"} component={Homepage} />
         <Route exact path={"/ipm_project/"} component={Homepage} />
         <Route exact path={"/ipm_project/profile/"} component={Profile} />
         <Route exact path={"/ipm_project/map"} component={Map} />
@@ -29,4 +30,3 @@ ReactDOM.render(
   </Router>,
 document.getElementById('root')
 );
-
