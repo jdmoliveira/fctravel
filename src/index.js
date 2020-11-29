@@ -13,7 +13,7 @@ import Profile from "./components/Header/Profile/Profile";
 import Map from './components/Map'
 import Timetables from './components/Timetables';
 import Find from './components/Find'
-
+import Payment from "./components/Payment/Payment";
 
 
 ReactDOM.render(
@@ -25,6 +25,7 @@ ReactDOM.render(
         <Route exact path={"/ipm_project/map"} component={Map} />
         <Route exact path={"/ipm_project/timetables"} component={Timetables} />
         <Route exact path={"/ipm_project/find"} component={Find} />
+        <Route exact path={"/ipm_project/payment/"} component={Payment} />
     </Switch>
   </Router>,
 document.getElementById('root')

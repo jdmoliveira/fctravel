@@ -1,7 +1,4 @@
-.PaymentPage #body{
-    overflow:hidden;
 
-}
 .paymentButtons{
     outline : none;
     transform : scale(0.2);
