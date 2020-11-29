@@ -1,6 +1,6 @@
 import history from "../history";
 import React, {Component} from "react";
-import { Dropdown, DropdownButton, Button, Card }  from 'react-bootstrap';
+import { Dropdown, DropdownButton, Button }  from 'react-bootstrap';
 import './Homepage.css';
 import location from '../images/location.jpg';
 import {withRouter} from "react-router-dom";
@@ -17,13 +17,14 @@ class Homepage extends Component {
     }
 
     switch(mode) {
+      var n = "";
       if (mode.equals("l")) {
-        var n = this.state.departure;
+        n = this.state.departure;
         this.setState({departure:this.state.arrival});
         this.setState({arrival:n});
       }
       else {
-        var n = this.state.arrival;
+        n = this.state.arrival;
         this.setState({arrival:this.state.departure});
         this.setState({departure:n});
       }
@@ -55,11 +56,11 @@ class Homepage extends Component {
 
           <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
             <div style={{marginTop:"15px",marginLeft:"65px", width:"400px", height:"40px", float: "middle"}}> Select departure and arrival locations </div>
-            <Button as="input" type="submit" value="Find" onClick={this.find.bind(this)} style={{transform:"scale(0.8)", marginTop:"140px",marginLeft:"-135px",height:"33px",float:"right"}}/>
+            <Button as="input" type="submit" value="Find" onClick={this.find.bind(this)} style={{"background-color": "#65ACD2", transform:"scale(0.8)", marginTop:"140px",marginLeft:"-135px",height:"33px",float:"right"}}/>
 
             <img src={location} style={{"transform":"scale(0.1)", marginTop:"-125px",marginLeft:"-160px"}} className="Location" alt="location" />
 
-            <DropdownButton title={this.state.departure} style={{marginTop:"70px",marginLeft:"-465px",width:"150px",height:"63px",float:"left"}} variant="secondary">
+            <DropdownButton title={this.state.departure} style={{ marginTop:"70px",marginLeft:"-465px",width:"150px",height:"63px",float:"left"}} variant="secondary">
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Oriente </Dropdown.Item>
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Setúbal </Dropdown.Item>
             </DropdownButton>
