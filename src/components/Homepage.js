@@ -15,6 +15,7 @@ class Homepage extends Component {
         super();
         departure = "";
         arrival = "";
+
     }
 
     switch(mode) {
@@ -28,6 +29,10 @@ class Homepage extends Component {
         arrival = departure;
         departure = n;
       }
+    }
+
+    changeValue(text) {
+      this.setState({dropDownValue: text})
     }
 
     insertDeparture(input) {
@@ -50,7 +55,7 @@ class Homepage extends Component {
       }
     }
 
-    render() {
+    render() { 
       return (
         <div className = "">
           <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
