@@ -39,7 +39,8 @@ class Homepage extends Component {
     }
 
     find() {
-      if (this.state.departure === "" || this.state.arrival === "" || this.state.departure === "Departure" || this.state.arrival === "Arrival") {
+      if (this.state.departure === "" || this.state.arrival === ""
+          || this.state.departure === "Departure" || this.state.arrival === "Arrival") {
         alert("Both departure and arrival must be defined.");
       }
       else {
@@ -55,7 +56,9 @@ class Homepage extends Component {
         <div className = "">
 
           <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
+
             <div style={{marginTop:"15px",marginLeft:"65px", width:"400px", height:"40px", float: "middle"}}> Select departure and arrival locations </div>
+
             <Button as="input" type="submit" value="Find" onClick={this.find.bind(this)} style={{"background-color": "#65ACD2", transform:"scale(0.8)", marginTop:"140px",marginLeft:"-135px",height:"33px",float:"right"}}/>
 
             <img src={location} style={{"transform":"scale(0.1)", marginTop:"-125px",marginLeft:"-160px"}} className="Location" alt="location" />
