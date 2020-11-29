@@ -88,12 +88,16 @@ class Profile extends Component {
                         </Form.Group>
                         <p style={{"fontSize":"90%","fontWeight":"bold"}}>User Type : {localStorage.getItem("userType")}</p>
                         <p/>
+                        <>
+                        {localStorage.getItem("userType") === "Default" ?
                         <Form.Group controlId="FILE" >
                             <Form.Text style={{"textDecoration":"underline"}}>Apply for student account *    <AiOutlineFilePdf style={{"color":"red","transform":"scale(2)"}}/></Form.Text>
                             <p/>
                             <Form.Control type="file" style={{"width":"14vw"}}onChange={(event)=>this.changeInfo(event)}></Form.Control>
 
                         </Form.Group>
+                            : null}
+                            </>
                     </Form>
                     <button className = "Logout" onClick={() => this.logout()}>Logout <AiOutlineLogout/></button>
                     <>
@@ -106,8 +110,11 @@ class Profile extends Component {
                     </>
                     <button className = "CancelChanges" onClick={() => history.push("/ipm_project/")}>Cancel</button>
                 </div>
-                <p style={{"float":"right","marginTop":"75vh","color":"#C1CCC6"}}>*Get discounts on all your travels by sending us a PDF file with proof of enrollment      *</p>
-
+                <>
+                    {localStorage.getItem("userType") === "Default" ?
+                        <p style={{"float":"right","marginTop":"75vh","color":"#C1CCC6"}}>*Get discounts on all your travels by sending us a PDF file with proof of enrollment      *</p>
+                        :null}
+                </>
             </>
 
 
