@@ -1,5 +1,87 @@
 import history from "../history";
 import React, {useCallback,Component} from "react";
+import { Dropdown, DropdownButton, Button, Card }  from 'react-bootstrap';
+import './Homepage.css';
+import location from '../images/location.jpg';
+import {withRouter} from "react-router-dom";
+import Footer from './Footer';
+
+class Homepage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+          departure: "Departure",
+          arrival: "Arrival"
+        }
+    }
+
+    switch(mode) {
+      if (mode.equals("l")) {
+        var n = this.state.departure;
+        this.setState({departure:this.state.arrival});
+        this.setState({arrival:n});
+      }
+      else {
+        var n = this.state.arrival;
+        this.setState({arrival:this.state.departure});
+        this.setState({departure:n});
+      }
+    }
+
+    insertDeparture(text){
+      this.setState({departure:text});
+    }
+
+    insertArrival(text){
+      this.setState({arrival:text});
+    }
+
+    find() {
+      if (this.state.departure == "" || this.state.arrival == "" || this.state.departure == "Departure" || this.state.arrival == "Arrival") {
+        alert("Both departure and arrival must be defined.");
+      }
+      else {
+        history.push({
+          pathname: "/ipm_project/find",
+          state: { departure: this.state.departure , arrival: this.state.arrival}
+        });
+      }
+    }
+
+    render() {
+      return (
+        <div className = "">
+          <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
+
+            <DropdownButton title={this.state.departure} style={{marginTop:"70px",marginLeft:"65px",width:"150px",height:"63px",float:"left"}} variant="secondary">
+              <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Oriente </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Setúbal </Dropdown.Item>
+            </DropdownButton>
+
+            <DropdownButton title={this.state.arrival} style={{marginTop:"70px",marginLeft:"60px",width:"150px",height:"63px",float:"middle"}} variant="secondary">
+              <Dropdown.Item onClick={(e) => this.insertArrival(e.target.textContent)}> FCT </Dropdown.Item>
+            </DropdownButton>
+
+            <Button as="input" type="submit" value="Find" onClick={this.find.bind(this)} style={{transform:"scale(0.8)", marginTop:"140px",marginLeft:"10px",height:"33px",float:"right"}}/>
+
+            <img src={location} style={{"transform":"scale(0.3)", marginTop:"-20px",marginLeft:"-50px"}} className="Location" alt="location" />
+          </div>
+
+          <Footer/>
+
+        </div>
+
+      )
+    }
+}
+
+export default withRouter(Homepage);
+
+
+/* // just in case
+import history from "../history";
+import React, {useCallback,Component} from "react";
 import { Dropdown, Button, Card }  from 'react-bootstrap';
 import './Homepage.css';
 import location from '../images/location.jpg';
@@ -55,7 +137,7 @@ class Homepage extends Component {
       }
     }
 
-    render() { 
+    render() {
       return (
         <div className = "">
           <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
@@ -93,21 +175,4 @@ class Homepage extends Component {
 }
 
 export default withRouter(Homepage);
-
-/*
-<Card style={{ float: 'middle',  border: 'solid', 'border-radius': '10px',position: 'absolute',
-  'top': '10%',
-  'left': '44%',
-  '-ms-transform': 'translate(-50%, -50%)',
-  'transform': 'translate(-50%, -50%)',
-  'transform': 'scale(1.5)',
-  'display':'flex',
-  'flex-direction':'row' }}>
-
-  <Card.Body>
-
-
-  </Card.Body>
-
-</Card>
 */
