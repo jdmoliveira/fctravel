@@ -38,7 +38,7 @@ class Homepage extends Component {
     }
 
     find() {
-      if (this.state.departure == "" || this.state.arrival == "" || this.state.departure == "Departure" || this.state.arrival == "Arrival") {
+      if (this.state.departure === "" || this.state.arrival === "" || this.state.departure === "Departure" || this.state.arrival === "Arrival") {
         alert("Both departure and arrival must be defined.");
       }
       else {
