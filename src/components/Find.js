@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import history from "../history";
 import './Find.css'
 import map1 from '../images/1.PNG';
 import map2 from '../images/2.PNG';
@@ -273,7 +274,7 @@ class Find extends React.Component {
                     ) : (
                                     this.state.t2r2_total
                                 )}
-                    <button id="buyBtn" onClick={() => this.props.history.push({ pathname: "/ipm_project/pay", state: { currentRoute: this.state.currentRoute, price: this.currentPrice() } })}>Buy</button>
+                    <button id="buyBtn" onClick={() => history.push({ pathname: "/ipm_project/pay", state: { currentRoute: this.state.currentRoute, price: this.currentPrice() } })}>Buy</button>
                 </div>
             </div>
         )
