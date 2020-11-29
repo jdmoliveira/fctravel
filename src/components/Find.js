@@ -22,7 +22,7 @@ class Find extends React.Component {
     };
 
     componentDidMount = () => {
-        if (this.props.departure === 'Oriente')
+        if (this.props.location.state.departure.trim() === 'Oriente')
             this.setState({ currentRoute: 't1r1' });
         else
             this.setState({ currentRoute: 't2r1' });
@@ -98,17 +98,17 @@ class Find extends React.Component {
             <div id='main'>
                 <div id='routes'>
                     <div id='map'>
-                        {this.props.departure === 'Oriente' ? (
+                        {this.props.location.state.departure.trim() === 'Oriente' ? (
                             <img className='image' src={map1} alt='map1' />
                         ) : (
                                 <img className='image' src={map2} alt='map2' />
                             )}
                     </div>
                     <div id='options'>
-                        <p>From: {this.props.departure}</p>
-                        <p>To: {this.props.arrival}</p>
+                        <p>From: {this.props.location.state.departure}</p>
+                        <p>To: {this.props.location.state.arrival}</p>
                         <hr id='line' />
-                        {this.props.departure === 'Oriente' ? (
+                        {this.props.location.state.departure.trim() === 'Oriente' ? (
                             <div onChange={this.onChangeValue}>
                                 <input type="radio" value="t1r1" name="option" defaultChecked />
                                 <img className='image' src={t1r1} alt='trip1_route1' />
