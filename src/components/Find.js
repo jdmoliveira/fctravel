@@ -37,45 +37,45 @@ class Find extends React.Component {
         if (this.state.currentRoute === 't1r1') {
             if (event.target.checked) {
                 this.setState({
-                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         else if (this.state.currentRoute === 't1r2') {
             if (event.target.checked) {
                 this.setState({
-                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         else if (this.state.currentRoute === 't2r1') {
             if (event.target.checked) {
                 this.setState({
-                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         else {
             if (event.target.checked) {
                 this.setState({
-                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         this.setState({
