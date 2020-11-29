@@ -6,13 +6,14 @@ import location from '../images/location.jpg';
 import {withRouter} from "react-router-dom";
 import Footer from './Footer';
 
+
 class Homepage extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           departure: "Departure",
-          arrival: "Arrival"
+          arrival: "Arrival",
         }
     }
 
@@ -48,6 +49,9 @@ class Homepage extends Component {
         });
       }
     }
+    changePaySuc=()=>{
+        this.setState({paySuc: !this.state.paySuc})
+    }
 
     render() {
       return (
@@ -68,6 +72,7 @@ class Homepage extends Component {
             </DropdownButton>
 
             </div>
+
 
           <Footer/>
 

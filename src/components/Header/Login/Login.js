@@ -7,7 +7,7 @@ class Login extends Component{
 
     constructor(props ) {
         super(props);
-        this.state = {open : false, email : "", password:""}
+        this.state = {email : "", password:""}
 
     }
 

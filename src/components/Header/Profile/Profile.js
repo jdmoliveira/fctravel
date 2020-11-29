@@ -96,7 +96,7 @@ class Profile extends Component {
                             <Form.Control type="file" style={{"width":"14vw"}}onChange={(event)=>this.changeInfo(event)}></Form.Control>
 
                         </Form.Group>
-                            : null}
+                            : <div style={{"height":"10vh"}}></div>}
                             </>
                     </Form>
                     <button className = "Logout" onClick={() => this.logout()}>Logout <AiOutlineLogout/></button>

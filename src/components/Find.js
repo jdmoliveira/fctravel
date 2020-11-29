@@ -8,7 +8,7 @@ import t1r1 from '../images/T1R1.PNG';
 import t1r2 from '../images/T2R2.PNG';
 import t2r1 from '../images/T2R1.PNG';
 import t2r2 from '../images/T2R2.PNG';
-
+import PaymentMethod from "./PaymentMethod/PaymentMethod";
 const t1r1_prices = [['CP Castanheira do Ribatejo - Alcântara', '1.35€'], ['Fertagus Roma-Areeiro - Coina', '2.00€'], ['MTS Universidade', '0.85€']];
 const t1r2_prices = [['CP Castanheira do Ribatejo - Alcântara', '1.35€'], ['Fertagus Roma-Areeiro - Coina', '2.00€'], ['TST 124 - Monte da Caparica', '1.40€']];
 const t2r1_prices = [['Fertagus Setúbal - Roma-Areeiro', '3.45€'], ['MTS Universidade', '0.85€']];
@@ -19,7 +19,7 @@ class Find extends React.Component {
     state = {
         currentRoute: null,
         t1r1_1: true, t1r1_2: true, t1r1_3: true, t1r2_1: true, t1r2_2: true, t1r2_3: true, t2r1_1: true, t2r1_2: true, t2r2_1: true, t2r2_2: true,
-        t1r1_total: '4.20€', t1r2_total: '4.75€', t2r1_total: '4.30€', t2r2_total: '4.85€'
+        t1r1_total: '4.20€', t1r2_total: '4.75€', t2r1_total: '4.30€', t2r2_total: '4.85€',paymentUp :false
     };
 
     componentDidMount = () => {
@@ -93,7 +93,9 @@ class Find extends React.Component {
         else
             return this.state.t2r2_total;
     }
-
+    paymentChange=()=>{
+        this.setState({paymentUp:!this.state.paymentUp})
+    }
     render() {
         return (
             <div id='main'>
@@ -274,8 +276,9 @@ class Find extends React.Component {
                     ) : (
                                     this.state.t2r2_total
                                 )}
-                    <button id="buyBtn" onClick={() => history.push({ pathname: "/ipm_project/pay", state: { currentRoute: this.state.currentRoute, price: this.currentPrice() } })}>Buy</button>
+                    <button id="buyBtn" onClick={this.paymentChange}>Buy</button>
                 </div>
+                <PaymentMethod show = {this.state.paymentUp}  departure={this.props.location.state.departure} onChange ={this.paymentChange} route={this.state.currentRoute} price ={this.currentPrice()}></PaymentMethod>
             </div>
         )
     }
