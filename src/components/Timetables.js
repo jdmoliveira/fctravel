@@ -224,7 +224,6 @@ class Timetables extends React.Component {
             <input type='button' id ="SearchButton" value = "Search" onClick={() => {this.initSearch()}}>
             </input>
         </div>
-        <Footer/>
         </div>   
       )
       
