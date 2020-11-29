@@ -2,6 +2,7 @@ import history from "../history";
 import React, {useCallback,Component} from "react";
 import { Dropdown, Button, Card }  from 'react-bootstrap';
 import './Homepage.css';
+import location from '../images/location.jpg';
 import {withRouter} from "react-router-dom";
 import Footer from './Footer';
 
@@ -52,9 +53,9 @@ class Homepage extends Component {
     render() {
       return (
         <div className = "">
-          <div className = "Screen">
-            <Card>
-              <Dropdown onSelect={this.insertDeparture}>
+          <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
+
+              <Dropdown onSelect={this.insertDeparture} style={{marginTop:"70px",marginLeft:"65px",width:"150px",height:"63px",float:"left"}}>
                 <Dropdown.Toggle variant="secondary" id="departure">
                   Departure
                 </Dropdown.Toggle>
@@ -63,9 +64,8 @@ class Homepage extends Component {
                   <Dropdown.Item > Setúbal </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </Card>
-            <Card>
-              <Dropdown onSelect={this.insertArrival}>
+
+              <Dropdown onSelect={this.insertArrival} style={{marginTop:"70px",marginLeft:"60px",width:"150px",height:"63px",float:"middle"}}>
                 <Dropdown.Toggle variant="secondary" id="arrival">
                   Arrival
                 </Dropdown.Toggle>
@@ -73,9 +73,10 @@ class Homepage extends Component {
                   <Dropdown.Item > FCT </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </Card>
-            <Button as="input" type="submit" value="Find" onClick={this.find} style={{transform:"scale(0.8)"}}/>
 
+            <Button as="input" type="submit" value="Find" onClick={this.find} style={{transform:"scale(0.8)", marginTop:"140px",marginLeft:"10px",height:"33px",float:"right"}}/>
+
+            <img src={location} style={{"transform":"scale(0.3)", marginTop:"-20px",marginLeft:"-50px"}} className="Location" alt="location" />
           </div>
 
           <Footer/>
