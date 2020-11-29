@@ -5,7 +5,7 @@ import './Find.css'
 import map1 from '../images/1.PNG';
 import map2 from '../images/2.PNG';
 import t1r1 from '../images/T1R1.PNG';
-import t1r2 from '../images/T2R2.PNG';
+import t1r2 from '../images/T1R2.PNG';
 import t2r1 from '../images/T2R1.PNG';
 import t2r2 from '../images/T2R2.PNG';
 import PaymentMethod from "./PaymentMethod/PaymentMethod";
@@ -37,45 +37,45 @@ class Find extends React.Component {
         if (this.state.currentRoute === 't1r1') {
             if (event.target.checked) {
                 this.setState({
-                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         else if (this.state.currentRoute === 't1r2') {
             if (event.target.checked) {
                 this.setState({
-                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         else if (this.state.currentRoute === 't2r1') {
             if (event.target.checked) {
                 this.setState({
-                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         else {
             if (event.target.checked) {
                 this.setState({
-                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
             }
             else
                 this.setState({
-                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))).toFixed(2) + '€'
                 });
         }
         this.setState({
@@ -134,7 +134,7 @@ class Find extends React.Component {
                     <p>Tickets:</p>
                     {this.state.currentRoute === 't1r1' ? (
                         <div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t1r1_prices[0][0]}
                                 <input
                                     name="t1r1_1" type="checkbox"
@@ -146,7 +146,7 @@ class Find extends React.Component {
                                         <span></span>
                                     )}
                             </div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t1r1_prices[1][0]}
                                 <input
                                     name="t1r1_2" type="checkbox"
@@ -158,7 +158,7 @@ class Find extends React.Component {
                                         <span></span>
                                     )}
                             </div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t1r1_prices[2][0]}
                                 <input
                                     name="t1r1_3" type="checkbox"
@@ -173,7 +173,7 @@ class Find extends React.Component {
                         </div>
                     ) : this.state.currentRoute === 't1r2' ? (
                         <div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t1r2_prices[0][0]}
                                 <input
                                     name="t1r2_1" type="checkbox"
@@ -185,7 +185,7 @@ class Find extends React.Component {
                                         <span></span>
                                     )}
                             </div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t1r2_prices[1][0]}
                                 <input
                                     name="t1r2_2" type="checkbox"
@@ -197,7 +197,7 @@ class Find extends React.Component {
                                         <span></span>
                                     )}
                             </div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t1r2_prices[2][0]}
                                 <input
                                     name="t1r2_3" type="checkbox"
@@ -212,7 +212,7 @@ class Find extends React.Component {
                         </div>
                     ) : this.state.currentRoute === 't2r1' ? (
                         <div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t2r1_prices[0][0]}
                                 <input
                                     name="t2r1_1" type="checkbox"
@@ -224,7 +224,7 @@ class Find extends React.Component {
                                         <span></span>
                                     )}
                             </div>
-                            <div>
+                            <div className='ticketInfo'>
                                 {t2r1_prices[1][0]}
                                 <input
                                     name="t2r1_2" type="checkbox"
@@ -239,7 +239,7 @@ class Find extends React.Component {
                         </div>
                     ) : (
                                     <div>
-                                        <div>
+                                        <div className='ticketInfo'>
                                             {t2r2_prices[0][0]}
                                             <input
                                                 name="t2r2_1" type="checkbox"
@@ -251,7 +251,7 @@ class Find extends React.Component {
                                                     <span></span>
                                                 )}
                                         </div>
-                                        <div>
+                                        <div className='ticketInfo'>
                                             {t2r2_prices[1][0]}
                                             <input
                                                 name="t2r2_2" type="checkbox"
@@ -265,7 +265,7 @@ class Find extends React.Component {
                                         </div>
                                     </div>
                                 )}
-                    <hr id='line' />
+                    <hr id='line2' />
                     Total:&nbsp;
                     {this.state.currentRoute === 't1r1' ? (
                         this.state.t1r1_total
