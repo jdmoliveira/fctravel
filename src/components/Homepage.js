@@ -52,21 +52,22 @@ class Homepage extends Component {
     render() {
       return (
         <div className = "">
-          <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
 
-            <DropdownButton title={this.state.departure} style={{marginTop:"70px",marginLeft:"65px",width:"150px",height:"63px",float:"left"}} variant="secondary">
+          <div className = "Screen" style={{width:"400px", height:"180px", marginLeft:"5px"}}>
+            <Button as="input" type="submit" value="Find" onClick={this.find.bind(this)} style={{transform:"scale(0.8)", marginTop:"140px",marginLeft:"330px",height:"33px",float:"right"}}/>
+
+            <img src={location} style={{"transform":"scale(0.3)", marginTop:"-20px",marginLeft:"-55px"}} className="Location" alt="location" />
+
+            <DropdownButton title={this.state.departure} style={{marginTop:"70px",marginLeft:"-465px",width:"150px",height:"63px",float:"left"}} variant="secondary">
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Oriente </Dropdown.Item>
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Setúbal </Dropdown.Item>
             </DropdownButton>
 
-            <DropdownButton title={this.state.arrival} style={{marginTop:"70px",marginLeft:"60px",width:"150px",height:"63px",float:"middle"}} variant="secondary">
+            <DropdownButton title={this.state.arrival} style={{marginTop:"70px",marginLeft:"30px",width:"150px",height:"63px",float:"middle"}} variant="secondary">
               <Dropdown.Item onClick={(e) => this.insertArrival(e.target.textContent)}> FCT </Dropdown.Item>
             </DropdownButton>
 
-            <Button as="input" type="submit" value="Find" onClick={this.find.bind(this)} style={{transform:"scale(0.8)", marginTop:"140px",marginLeft:"10px",height:"33px",float:"right"}}/>
-
-            <img src={location} style={{"transform":"scale(0.3)", marginTop:"-20px",marginLeft:"-50px"}} className="Location" alt="location" />
-          </div>
+            </div>
 
           <Footer/>
 
