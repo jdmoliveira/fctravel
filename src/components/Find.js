@@ -1,38 +1,280 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import './Find.css'
-import { MapContainer, TileLayer } from "react-leaflet";
-import L from "leaflet";
-import "leaflet-routing-machine";
+import map1 from '../images/1.PNG';
+import map2 from '../images/2.PNG';
+import t1r1 from '../images/T1R1.PNG';
+import t1r2 from '../images/T2R2.PNG';
+import t2r1 from '../images/T2R1.PNG';
+import t2r2 from '../images/T2R2.PNG';
+
+const t1r1_prices = [['CP Castanheira do Ribatejo - Alcântara', '1.35€'], ['Fertagus Roma-Areeiro - Coina', '2.00€'], ['MTS Universidade', '0.85€']];
+const t1r2_prices = [['CP Castanheira do Ribatejo - Alcântara', '1.35€'], ['Fertagus Roma-Areeiro - Coina', '2.00€'], ['TST 124 - Monte da Caparica', '1.40€']];
+const t2r1_prices = [['Fertagus Setúbal - Roma-Areeiro', '3.45€'], ['MTS Universidade', '0.85€']];
+const t2r2_prices = [['Fertagus Setúbal - Roma-Areeiro', '3.45€'], ['TST 124 - Monte da Caparica', '1.40€']];
 
 class Find extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.map = null;
+    state = {
+        currentRoute: null,
+        t1r1_1: true, t1r1_2: true, t1r1_3: true, t1r2_1: true, t1r2_2: true, t1r2_3: true, t2r1_1: true, t2r1_2: true, t2r2_1: true, t2r2_2: true,
+        t1r1_total: '4.20€', t1r2_total: '4.75€', t2r1_total: '4.30€', t2r2_total: '4.85€'
+    };
+
+    componentDidMount = () => {
+        if (this.props.departure === 'Oriente')
+            this.setState({ currentRoute: 't1r1' });
+        else
+            this.setState({ currentRoute: 't2r1' });
     }
 
-    drawRoute() {
-        console.log(this.map)
-        L.Routing.control({
-            waypoints: [
-                L.latLng(57.74, 11.94),
-                L.latLng(57.6792, 11.949)
-            ]
-        }).addTo(this.map);
+    onChangeValue = (event) => {
+        this.setState({ currentRoute: event.target.value });
+    }
+
+    handleCheckboxChange = (event, price) => {
+        if (this.state.currentRoute === 't1r1') {
+            if (event.target.checked) {
+                this.setState({
+                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                });
+            }
+            else
+                this.setState({
+                    t1r1_total: (parseFloat(this.state.t1r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                });
+        }
+        else if (this.state.currentRoute === 't1r2') {
+            if (event.target.checked) {
+                this.setState({
+                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                });
+            }
+            else
+                this.setState({
+                    t1r2_total: (parseFloat(this.state.t1r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                });
+        }
+        else if (this.state.currentRoute === 't2r1') {
+            if (event.target.checked) {
+                this.setState({
+                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                });
+            }
+            else
+                this.setState({
+                    t2r1_total: (parseFloat(this.state.t2r1_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                });
+        }
+        else {
+            if (event.target.checked) {
+                this.setState({
+                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) + parseFloat(price.replace('€', ''))) + '€'
+                });
+            }
+            else
+                this.setState({
+                    t2r2_total: (parseFloat(this.state.t2r2_total.replace('€', '')) - parseFloat(price.replace('€', ''))) + '€'
+                });
+        }
+        this.setState({
+            [event.target.name]: event.target.checked
+        });
+    }
+
+    currentPrice = () => {
+        if (this.state.currentRoute === 't1r1')
+            return this.state.t1r1_total;
+        else if (this.state.currentRoute === 't1r2')
+            return this.state.t1r2_total;
+        else if (this.state.currentRoute === 't2r1')
+            return this.state.t2r1_total;
+        else
+            return this.state.t2r2_total;
     }
 
     render() {
-        const position = [38.716, -9.133];
         return (
-            <div className="MapDisplay">
-                <MapContainer id='container2' center={position} zoom={12} scrollWheelZoom={false} ref={(ref) => this.map = ref}>
-                    <TileLayer
-                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=70e9fe8acc0a4e7694a75fe6210ce615"
-                    />
-                </MapContainer>,
-
+            <div id='main'>
+                <div id='routes'>
+                    <div id='map'>
+                        {this.props.departure === 'Oriente' ? (
+                            <img className='image' src={map1} alt='map1' />
+                        ) : (
+                                <img className='image' src={map2} alt='map2' />
+                            )}
+                    </div>
+                    <div id='options'>
+                        <p>From: {this.props.departure}</p>
+                        <p>To: {this.props.arrival}</p>
+                        <hr id='line' />
+                        {this.props.departure === 'Oriente' ? (
+                            <div onChange={this.onChangeValue}>
+                                <input type="radio" value="t1r1" name="option" defaultChecked />
+                                <img className='image' src={t1r1} alt='trip1_route1' />
+                                <hr id='line' />
+                                <input type="radio" value="t1r2" name="option" />
+                                <img className='image' src={t1r2} alt='trip1_route2' />
+                            </div>
+                        ) : (
+                                <div onChange={this.onChangeValue}>
+                                    <input type="radio" value="t2r1" name="option" defaultChecked />
+                                    <img className='image' src={t2r1} alt='trip2_route1' />
+                                    <hr id='line' />
+                                    <input type="radio" value="t2r2" name="option" />
+                                    <img className='image' src={t2r2} alt='trip2_route2' />
+                                </div>
+                            )}
+                    </div>
+                </div>
+                <div id='buy'>
+                    <p>Tickets:</p>
+                    {this.state.currentRoute === 't1r1' ? (
+                        <div>
+                            <div>
+                                {t1r1_prices[0][0]}
+                                <input
+                                    name="t1r1_1" type="checkbox"
+                                    checked={this.state.t1r1_1}
+                                    onChange={(e) => this.handleCheckboxChange(e, t1r1_prices[0][1])} />
+                                {this.state.t1r1_1 === true ? (
+                                    <span>{t1r1_prices[0][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                            <div>
+                                {t1r1_prices[1][0]}
+                                <input
+                                    name="t1r1_2" type="checkbox"
+                                    checked={this.state.t1r1_2}
+                                    onChange={(e) => this.handleCheckboxChange(e, t1r1_prices[1][1])} />
+                                {this.state.t1r1_2 === true ? (
+                                    <span>{t1r1_prices[1][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                            <div>
+                                {t1r1_prices[2][0]}
+                                <input
+                                    name="t1r1_3" type="checkbox"
+                                    checked={this.state.t1r1_3}
+                                    onChange={(e) => this.handleCheckboxChange(e, t1r1_prices[2][1])} />
+                                {this.state.t1r1_3 === true ? (
+                                    <span>{t1r1_prices[2][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                        </div>
+                    ) : this.state.currentRoute === 't1r2' ? (
+                        <div>
+                            <div>
+                                {t1r2_prices[0][0]}
+                                <input
+                                    name="t1r2_1" type="checkbox"
+                                    checked={this.state.t1r2_1}
+                                    onChange={(e) => this.handleCheckboxChange(e, t1r2_prices[0][1])} />
+                                {this.state.t1r2_1 === true ? (
+                                    <span>{t1r2_prices[0][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                            <div>
+                                {t1r2_prices[1][0]}
+                                <input
+                                    name="t1r2_2" type="checkbox"
+                                    checked={this.state.t1r2_2}
+                                    onChange={(e) => this.handleCheckboxChange(e, t1r2_prices[1][1])} />
+                                {this.state.t1r2_2 === true ? (
+                                    <span>{t1r2_prices[1][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                            <div>
+                                {t1r2_prices[2][0]}
+                                <input
+                                    name="t1r2_3" type="checkbox"
+                                    checked={this.state.t1r2_3}
+                                    onChange={(e) => this.handleCheckboxChange(e, t1r2_prices[2][1])} />
+                                {this.state.t1r2_3 === true ? (
+                                    <span>{t1r2_prices[2][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                        </div>
+                    ) : this.state.currentRoute === 't2r1' ? (
+                        <div>
+                            <div>
+                                {t2r1_prices[0][0]}
+                                <input
+                                    name="t2r1_1" type="checkbox"
+                                    checked={this.state.t2r1_1}
+                                    onChange={(e) => this.handleCheckboxChange(e, t2r1_prices[0][1])} />
+                                {this.state.t2r1_1 === true ? (
+                                    <span>{t2r1_prices[0][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                            <div>
+                                {t2r1_prices[1][0]}
+                                <input
+                                    name="t2r1_2" type="checkbox"
+                                    checked={this.state.t2r1_2}
+                                    onChange={(e) => this.handleCheckboxChange(e, t2r1_prices[1][1])} />
+                                {this.state.t2r1_2 === true ? (
+                                    <span>{t2r1_prices[1][1]}</span>
+                                ) : (
+                                        <span></span>
+                                    )}
+                            </div>
+                        </div>
+                    ) : (
+                                    <div>
+                                        <div>
+                                            {t2r2_prices[0][0]}
+                                            <input
+                                                name="t2r2_1" type="checkbox"
+                                                checked={this.state.t2r2_1}
+                                                onChange={(e) => this.handleCheckboxChange(e, t2r2_prices[0][1])} />
+                                            {this.state.t2r2_1 === true ? (
+                                                <span>{t2r2_prices[0][1]}</span>
+                                            ) : (
+                                                    <span></span>
+                                                )}
+                                        </div>
+                                        <div>
+                                            {t2r2_prices[1][0]}
+                                            <input
+                                                name="t2r2_2" type="checkbox"
+                                                checked={this.state.t2r2_2}
+                                                onChange={(e) => this.handleCheckboxChange(e, t2r2_prices[1][1])} />
+                                            {this.state.t2r2_2 === true ? (
+                                                <span>{t2r2_prices[1][1]}</span>
+                                            ) : (
+                                                    <span></span>
+                                                )}
+                                        </div>
+                                    </div>
+                                )}
+                    <hr id='line' />
+                    Total:&nbsp;
+                    {this.state.currentRoute === 't1r1' ? (
+                        this.state.t1r1_total
+                    ) : this.state.currentRoute === 't1r2' ? (
+                        this.state.t1r2_total
+                    ) : this.state.currentRoute === 't2r1' ? (
+                        this.state.t2r1_total
+                    ) : (
+                                    this.state.t2r2_total
+                                )}
+                    <button id="buyBtn" onClick={() => this.props.history.push({ pathname: "/ipm_project/pay", state: { currentRoute: this.state.currentRoute, price: this.currentPrice() } })}>Buy</button>
+                </div>
             </div>
         )
     }
