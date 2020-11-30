@@ -21,28 +21,28 @@ class PaymentMethod extends Component{
     paypal(){
         this.changeShow()
         history.push({
-            pathname: "/ipm_project/payment/",
+            pathname: "/payment/",
             state: { method : "paypal", route : this.props.route,price: this.props.price,departure : this.props.departure}
         })
     }
     mb(){
         this.changeShow()
         history.push({
-            pathname: "/ipm_project/payment/",
+            pathname: "/payment/",
             state: { method : "mb", route : this.props.route,price: this.props.price, departure : this.props.departure}
             })
     }
     visa(){
         this.changeShow()
         history.push({
-            pathname: "/ipm_project/payment/",
+            pathname: "/payment/",
             state: { method : "visa", route : this.props.route,price: this.props.price, departure:this.props.departure}
         })
     }
     mastercard(){
         this.changeShow()
         history.push({
-            pathname: "/ipm_project/payment/",
+            pathname: "/payment/",
             state: { method : "mastercard", route : this.props.route,price: this.props.price,departure : this.props.departure}
         })
     }
