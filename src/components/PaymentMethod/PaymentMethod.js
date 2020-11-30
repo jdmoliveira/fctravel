@@ -59,12 +59,12 @@ class PaymentMethod extends Component{
 
             <Modal size = "lg" show={this.props.show} onHide={()=>this.changeShow()}>
                 <Modal.Header style={{"margin":"auto","fontWeight":"bold","fontSize":"150%"}}>Choose your payment method</Modal.Header>
-                <Modal.Body style={{"height":"78vh"}}>
+                <Modal.Body style={{"height":"78vh","position":"relative"}}>
 
-                            <input type="image" src={mb} style={{"transform":"scale(0.55)","marginLeft":"2vw","display":"block"}} alt ="mb" onClick={()=>this.mb()}/>
-                            <input type="image" src={paypal} style={{"transform":"scale(0.15)","marginTop":"-50vh","marginLeft":"-15vw","display":"block"}} alt = "paypal"onClick={()=>this.paypal()}/>
-                            <input type="image" src={mastercard} style={{"transform":"scale(0.13)","marginTop":"-60vh","marginLeft":"-31vw","display":"block"}} alt = "mastercard" onClick={()=>this.mastercard()}/>
-                            <input type="image" src={visa} style={{"transform":"scale(0.14)","marginTop":"-127vh","marginLeft":"-5vw","display":"block"}} alt = "visa" onClick={()=>this.visa()}/>
+                            <input type="image" src={mb} style={{"position":"absolute","transform":"scale(0.55)","marginLeft":"2vw","display":"block"}} alt ="mb" onClick={()=>this.mb()}/>
+                            <input type="image" src={paypal} style={{"position":"absolute","transform":"scale(0.15)","marginTop":"-13vh","marginLeft":"-15vw","display":"block"}} alt = "paypal"onClick={()=>this.paypal()}/>
+                            <input type="image" src={mastercard} style={{"position":"absolute","transform":"scale(0.13)","marginTop":"-20vh","marginLeft":"-31vw","display":"block"}} alt = "mastercard" onClick={()=>this.mastercard()}/>
+                            <input type="image" src={visa} style={{"position":"absolute","transform":"scale(0.14)","marginTop":"-9vh","marginLeft":"-5vw","display":"block"}} alt = "visa" onClick={()=>this.visa()}/>
                 </Modal.Body>
             </Modal>
 
