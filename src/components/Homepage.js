@@ -67,12 +67,12 @@ class Homepage extends Component {
 
             <img src={location} style={{"transform":"scale(0.1)", marginTop:"-125px",marginLeft:"-160px"}} className="Location" alt="location" />
 
-            <DropdownButton title={this.state.departure} style={{ marginTop:"70px",marginLeft:"-465px",width:"150px",height:"63px",float:"left"}} variant="secondary">
+            <DropdownButton title={this.state.departure} style={{ marginTop:"70px",marginLeft:"-25vw",width:"150px",height:"63px",float:"left"}} variant="secondary">
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Oriente </Dropdown.Item>
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Setúbal </Dropdown.Item>
             </DropdownButton>
 
-            <DropdownButton title={this.state.arrival} style={{marginTop:"70px",marginLeft:"25px",width:"150px",height:"63px",float:"middle"}} variant="secondary">
+            <DropdownButton title={this.state.arrival} style={{marginTop:"70px",marginLeft:"2vw",width:"150px",height:"63px",float:"middle"}} variant="secondary">
               <Dropdown.Item onClick={(e) => this.insertArrival(e.target.textContent)}> FCT </Dropdown.Item>
             </DropdownButton>
 
