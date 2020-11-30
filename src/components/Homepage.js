@@ -46,7 +46,7 @@ class Homepage extends Component {
       }
       else {
         history.push({
-          pathname: "/ipm_project/find",
+          pathname: "/find",
           state: { departure: this.state.departure , arrival: this.state.arrival}
         });
       }

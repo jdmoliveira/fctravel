@@ -24,12 +24,12 @@ class Payment extends Component {
 
 
     buyTicket(){
-        history.push("/ipm_project/")
+        history.push("/")
         alert("Your tickets were purchased successfully! Check them in your e-mail.")
     }
     dontBuyTicket(){
         history.push({
-            pathname: "/ipm_project/find/",
+            pathname: "/find/",
             state: { departure : this.props.location.state.departure}
         })
     }

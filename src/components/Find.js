@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import history from "../history";
 import './Find.css'
 import map1 from '../images/1.PNG';
 import map2 from '../images/2.PNG';

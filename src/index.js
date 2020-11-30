@@ -20,13 +20,13 @@ ReactDOM.render(
   <Router history={history}>
       <Header/>
     <Switch>
-        <Route exact path={"/ipm_project/"} component={Homepage} />
-        <Route exact path={"/ipm_project/profile/"} component={Profile} />
-        <Route exact path={"/ipm_project/map"} component={Map} />
-        <Route exact path={"/ipm_project/timetables"} component={Timetables} />
-        <Route exact path={"/ipm_project/find"} component={Find} />
-        <Route exact path={"/ipm_project/payment/"} component={Payment} />
-        <Route exact path={"/ipm_project/help/"} component={Help} />
+        <Route exact path={"/"} component={Homepage} />
+        <Route exact path={"/profile/"} component={Profile} />
+        <Route exact path={"/map/"} component={Map} />
+        <Route exact path={"/timetables/"} component={Timetables} />
+        <Route exact path={"/find/"} component={Find} />
+        <Route exact path={"/payment/"} component={Payment} />
+        <Route exact path={"/help/"} component={Help} />
     </Switch>
   </Router>,
 document.getElementById('root')
