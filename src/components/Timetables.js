@@ -49,6 +49,9 @@ class Timetables extends React.Component {
     var selected = document.getElementById("check"+i);
     var labels;
     switch(i){
+      case 0:
+        alert("Please select a transport line. ");
+        break;
       case 1: 
         labels = document.getElementById("cp");
         if (labels.innerHTML === "CP Linha Sintra(Sintra-&gt;Azambuja)")
@@ -160,7 +163,8 @@ class Timetables extends React.Component {
           }
         }
         this.showTimetableImage(index);
-      }
+      } else 
+          alert("Please select a transport line. ");
     }
       
 
