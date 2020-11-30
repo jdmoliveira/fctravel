@@ -8,7 +8,7 @@ import history from './history';
 
 import Header from './components/Header/Header'
 import Homepage from './components/Homepage'
-
+import Help from './components/Help'
 import Profile from "./components/Header/Profile/Profile";
 import Map from './components/Map'
 import Timetables from './components/Timetables';
@@ -26,6 +26,7 @@ ReactDOM.render(
         <Route exact path={"/ipm_project/timetables"} component={Timetables} />
         <Route exact path={"/ipm_project/find"} component={Find} />
         <Route exact path={"/ipm_project/payment/"} component={Payment} />
+        <Route exact path={"/ipm_project/help/"} component={Help} />
     </Switch>
   </Router>,
 document.getElementById('root')
