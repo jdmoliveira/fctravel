@@ -48,7 +48,7 @@ class PaymentMethod extends Component{
     }
     changeShow(){
         this.props.onChange()
-        history.push("/ipm_project/payment")
+        history.push({pathname:"/ipm_project/find/", state:{departure:this.props.departure}})
     }
 
 

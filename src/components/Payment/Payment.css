@@ -1,4 +1,12 @@
 
+.PaymentPage{
+    z-index:0;
+
+    height:80vh;
+    width:98vw;
+    overflow:hidden;
+}
+
 .paymentButtons{
     outline : none;
     transform : scale(0.2);
