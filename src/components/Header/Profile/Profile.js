@@ -16,7 +16,7 @@ class Profile extends Component {
 
 
     logout(){
-        history.push("/ipm_project/")
+        history.push("/")
         localStorage.setItem("token","off")
 
     }
@@ -55,7 +55,7 @@ class Profile extends Component {
             alert("Invalid birthdate")
             return 0;
         }
-        history.push("/ipm_project/")
+        history.push("/")
         localStorage.setItem("name",this.state.name)
         localStorage.setItem("email",this.state.email)
         localStorage.setItem("birth",this.state.birth)
@@ -108,7 +108,7 @@ class Profile extends Component {
                             <button className = "SaveChanges" onClick={() => this.saveChanges()} >Save</button>
                         }
                     </>
-                    <button className = "CancelChanges" onClick={() => history.push("/ipm_project/")}>Cancel</button>
+                    <button className = "CancelChanges" onClick={() => history.push("/")}>Cancel</button>
                 </div>
                 <>
                     {localStorage.getItem("userType") === "Default" ?

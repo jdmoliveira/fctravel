@@ -2,7 +2,7 @@ import history from "../history";
 import React, {Component} from "react";
 import { Dropdown, DropdownButton, Button }  from 'react-bootstrap';
 import './Homepage.css';
-import location from '../images/location.jpg';
+import location from '../images/location.png';
 import {withRouter} from "react-router-dom";
 import Footer from './Footer';
 
@@ -46,7 +46,7 @@ class Homepage extends Component {
       }
       else {
         history.push({
-          pathname: "/ipm_project/find",
+          pathname: "/find",
           state: { departure: this.state.departure , arrival: this.state.arrival}
         });
       }
@@ -65,14 +65,14 @@ class Homepage extends Component {
 
             <Button as="input" type="submit" value="Find" onClick={this.find.bind(this)} style={{"background-color": "#65ACD2", transform:"scale(0.8)", marginTop:"140px",marginLeft:"-135px",height:"33px",float:"right"}}/>
 
-            <img src={location} style={{"transform":"scale(0.1)", marginTop:"-125px",marginLeft:"-160px"}} className="Location" alt="location" />
+            <img src={location} style={{"transform":"scale(0.1)scaleX(1.2)", marginTop:"-125px",marginLeft:"-160px"}} className="Location" alt="location" />
 
-            <DropdownButton title={this.state.departure} style={{ marginTop:"70px",marginLeft:"-465px",width:"150px",height:"63px",float:"left"}} variant="secondary">
+            <DropdownButton title={this.state.departure} style={{ marginTop:"70px",marginLeft:"-25vw",width:"150px",height:"63px",float:"left"}} variant="secondary">
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Oriente </Dropdown.Item>
               <Dropdown.Item onClick={(e) => this.insertDeparture(e.target.textContent)}> Setúbal </Dropdown.Item>
             </DropdownButton>
 
-            <DropdownButton title={this.state.arrival} style={{marginTop:"70px",marginLeft:"25px",width:"150px",height:"63px",float:"middle"}} variant="secondary">
+            <DropdownButton title={this.state.arrival} style={{marginTop:"70px",marginLeft:"2vw",width:"150px",height:"63px",float:"middle"}} variant="secondary">
               <Dropdown.Item onClick={(e) => this.insertArrival(e.target.textContent)}> FCT </Dropdown.Item>
             </DropdownButton>
 
