@@ -86,10 +86,10 @@ class Timetables extends React.Component {
       break;
       case 6:
         labels = document.getElementById("transtejo");
-        if (labels.innerHTML === "Transtejo (Cacilhas-&gt;Cais do Sodré)")
+        if (labels.innerHTML === "Transtejo (Cacilhas–&gt;Cais do Sodré)")
           labels.innerHTML = "Transtejo (Cais do Sodré-&gt;Cacilhas)";
         else
-          labels.innerHTML = "Transtejo (Cacilhas-&gt;Cais do Sodré)"; 
+          labels.innerHTML = "Transtejo (Cacilhas–&gt;Cais do Sodré)"; 
       break;
     }
     if (hasImage)
@@ -101,7 +101,7 @@ class Timetables extends React.Component {
     var image;
     var labels;
     for (var j = 1; j <=11; j++){
-    document.getElementById("image"+j).style.display = "none";
+      document.getElementById("image"+j).style.display = "none";
     }
     var arrival = document.getElementById("Arrival");
     var departure = document.getElementById("Departure");
@@ -141,7 +141,7 @@ class Timetables extends React.Component {
       break;
       case 6:
         labels = document.getElementById("transtejo");
-        if(labels.innerHTML === "Transtejo (Cacilhas-&gt;Cais do Sodré)")
+        if(labels.innerHTML === "Transtejo (Cacilhas–&gt;Cais do Sodré)")
           image = document.getElementById("image10");
         else 
           image = document.getElementById("image11");
@@ -168,60 +168,60 @@ class Timetables extends React.Component {
   render() { // arrows TODO, logos TODO
       return (
         <div>
-        <div className = "TransportLines">
-          <p className = "Titulo"> Public Transport Lines </p>
+        <div className = "TransportLines" style={{width:"650px", height:"auto", marginLeft:"5%", marginTop:"10%",}}>
+          <div className = "Titulo" style={{marginTop:"15px",marginLeft:"65px", width:"400px", height:"40px", margin:"auto"}}> Public Transport Lines </div>
           <div class = "ChangeButton">
-          <input type='button' id ="SwitchButton" value = "Switch" onClick={() => {this.change(this.getSelected())}} >
+          <input type='button' id ="SwitchButton" value = "Switch" style={{transform:"scale(1.2)","background-color": "#65ACD2",fontWeight:"bold"}}onClick={() => {this.change(this.getSelected())}} >
             </input> 
           </div>
           <div className = "Option1">
-                <input type="checkbox" id="check1" name="cp" onClick={()=> this.checkClicked("check1")}/>
-                <label id ="cp" for="cp">CP Linha Sintra(Sintra->Azambuja)</label>
+                <input type="checkbox" id="check1" name="cp" style={{ transform: "scale(1.5)",marginTop:"35px",marginLeft:"20px", marginBottom:"30px"}} onClick={()=> this.checkClicked("check1")}/>
+                <label id ="cp" for="cp" style={{fontSize:"140%",padding:"10px"}}>CP Linha Sintra(Sintra->Azambuja)</label>
           </div>
           <div className = "Option2">
-                <input type="checkbox" id="check2" name="Metro" onClick={()=> this.checkClicked("check2")}/>
-                <label id ="metro" for="Metro" className="option2">Metro de Lisboa Linha Amarela (Odivelas->Rato)</label>
+                <input type="checkbox" id="check2" name="Metro" style={{transform: "scale(1.5)",marginLeft:"20px",marginBottom:"30px"}} onClick={()=> this.checkClicked("check2")}/>
+                <label id ="metro" for="Metro" style={{fontSize:"140%", padding:"10px"}}>Metro de Lisboa Linha Amarela (Odivelas->Rato)</label>
           </div>
           <div className = "Option3">
-                <input type="checkbox" id="check3" name="Fertagus" onClick={()=> this.checkClicked("check3")}/>
-                <label id= "fertagus" for="Fertagus">Fertagus(Setúbal->Lisboa)</label>
+                <input type="checkbox" id="check3" name="Fertagus" style={{transform: "scale(1.5)",marginLeft:"20px",marginBottom:"30px"}} onClick={()=> this.checkClicked("check3")}/>
+                <label id= "fertagus" style={{fontSize:"140%", padding:"10px"}} for="Fertagus">Fertagus(Setúbal->Lisboa)</label>
           </div>
           <div className = "Option4">
-                <input type="checkbox" id="check4" name="Rodoviaria" onClick={()=> this.checkClicked("check4")}/>
-                <label id= "rodoviaria" for="Rodoviaria">Rodoviária de Lisboa (Colégio Militar->Caneças(Jardim))</label>
+                <input type="checkbox" id="check4" name="Rodoviaria" style={{transform: "scale(1.5)",marginLeft:"20px",marginBottom:"30px"}} onClick={()=> this.checkClicked("check4")}/>
+                <label id= "rodoviaria" style={{fontSize:"140%", padding:"10px"}} for="Rodoviaria">Rodoviária de Lisboa (Colégio Militar->Caneças(Jardim))</label>
           </div>
           <div className = "Option5">
-                <input type="checkbox" id="check5" name="Carris" onClick={()=> this.checkClicked("check5")}/>
-                <label id ="carris" for="Carris">Carris - Carreira 28E (Martim Moniz->Campo Ourique)</label>
+                <input type="checkbox" id="check5" name="Carris" style={{transform: "scale(1.5)",marginLeft:"20px",marginBottom:"30px"}} onClick={()=> this.checkClicked("check5")}/>
+                <label id ="carris" style={{fontSize:"140%", padding:"10px"}} for="Carris">Carris - Carreira 28E (Martim Moniz->Campo Ourique)</label>
           </div>
           <div className = "Option6">
-                <input type="checkbox" id="check6" name="Transtejo" onClick={()=> this.checkClicked("check6")}/>
-                <label id="transtejo" for="Transtejo">Transtejo (Cacilhas–>Cais do Sodré)</label>
+                <input type="checkbox" id="check6" name="Transtejo" style={{transform: "scale(1.5)",marginLeft:"20px",marginBottom:"30px"}} onClick={()=> this.checkClicked("check6")}/>
+                <label id="transtejo" style={{fontSize:"140%", padding:"10px"}} for="Transtejo">Transtejo (Cacilhas–>Cais do Sodré)</label>
         </div>
         </div >
         <div className = "ImagesTimetable" id = "ImagesTimetable">
-        <img src={cp_sintra_azambuja} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="cp_sintra_azambuja" alt="cp_sintra_azambuja" id="image1" />
-        <img src={cp_azambuja_sintra} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="cp_azambuja_sintra" alt="cp_azambuja_sintra" id="image2" />
-        <img src={metrolisboa_linhaamarela} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="cp_azambuja_sintra" alt="cp_azambuja_sintra" id="image3" />
-        <img src={fertagus_lisboa_setubal} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="fertagus_lisboa_setubal" alt="fertagus_lisboa_setubal" id="image4" />
-        <img src={fertagus_setubal_lisboa} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="fertagus_setubal_lisboa" alt="fertagus_setubal_lisboa" id="image5" />
-        <img src={rodoviaria_canecas_colegio} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="rodoviaria_canecas_colegio" alt="rodoviaria_canecas_colegio" id="image6" />
-        <img src={rodoviaria_colegio_canecas} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="rodoviaria_colegio_canecas" alt="rodoviaria_colegio_canecas" id="image7" />
-        <img src={carris_campo_martim} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="carris_campo_martim" alt="carris_campo_martim" id="image8" />
-        <img src={carris_martim_campo} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="carris_martim_campo" alt="carris_martim_campo" id="image9" />
-        <img src={transtejo_cacilhas_cais} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="transtejo_cacilhas_cais" alt="transtejo_cacilhas_cais" id="image10" />
-        <img src={transtejo_cais_cacilhas} style={{"transform":"scale(0.5)","marginLeft":"25vh", "marginBottom":"20vh", display: "none"}} className="transtejo_cais_cacilhas" alt="transtejo_cais_cacilhas" id="image11" />
-          <div className = "Departure" id= "Departure">
-            <p>Enter departure date:</p>
+        <img src={cp_sintra_azambuja} style={{position:"absolute",transform:"scale(0.85)",marginLeft:"45%",marginTop:"12%", display: "none"}} className="cp_sintra_azambuja" alt="cp_sintra_azambuja" id="image1" />
+        <img src={cp_azambuja_sintra} style={{position:"absolute",transform:"scale(0.85)",marginLeft:"45%",marginTop:"12%", display: "none"}} className="cp_azambuja_sintra" alt="cp_azambuja_sintra" id="image2" />
+        <img src={metrolisboa_linhaamarela} style={{position:"absolute", transform:"scale(0.75)",marginLeft:"40%", marginTop:"5%", display: "none"}} className="cp_azambuja_sintra" alt="cp_azambuja_sintra" id="image3" />
+        <img src={fertagus_lisboa_setubal} style={{position:"absolute",transform:"scale(0.5)",marginLeft:"29%", marginBottom:"100%",display: "none"}} className="fertagus_lisboa_setubal" alt="fertagus_lisboa_setubal" id="image4" />
+        <img src={fertagus_setubal_lisboa} style={{position:"absolute",transform:"scale(0.5)",marginLeft:"29%",display: "none"}} className="fertagus_setubal_lisboa" alt="fertagus_setubal_lisboa" id="image5" />
+        <img src={rodoviaria_canecas_colegio} style={{position:"absolute",transform:"scale(0.65)",marginLeft:"36%", marginTop:"15%", display: "none"}} className="rodoviaria_canecas_colegio" alt="rodoviaria_canecas_colegio" id="image6" />
+        <img src={rodoviaria_colegio_canecas} style={{position:"absolute",transform:"scale(0.65)",marginLeft:"36%", marginTop:"15%", display: "none"}} className="rodoviaria_colegio_canecas" alt="rodoviaria_colegio_canecas" id="image7" />
+        <img src={carris_campo_martim} style={{position:"absolute", transform:"scale(1)",marginLeft:"52%",marginTop:"12%", display: "none"}} className="carris_campo_martim" alt="carris_campo_martim" id="image8" />
+        <img src={carris_martim_campo} style={{position:"absolute", transform:"scale(1)",marginLeft:"52%",marginTop:"10%", display: "none"}} className="carris_martim_campo" alt="carris_martim_campo" id="image9" />
+        <img src={transtejo_cacilhas_cais} style={{position:"absolute", transform:"scale(0.6)",marginLeft:"30%",marginTop:"10%", display: "none"}} className="transtejo_cacilhas_cais" alt="transtejo_cacilhas_cais" id="image10" />
+        <img src={transtejo_cais_cacilhas} style={{position:"absolute", transform:"scale(0.6)",marginLeft:"30%",marginTop:"10%", display: "none"}} className="transtejo_cais_cacilhas" alt="transtejo_cais_cacilhas" id="image11" />
+          <div className = "Departure" id= "Departure" style={{marginLeft:"5%"}}>
+            <p style={{fontWeight:"bold", fontSize:"120%"}}>Enter departure date:</p>
               <Datetime/>
             </div>
-            <div className = "Arrival" id = "Arrival">
-            <p>Enter arrival date:</p>
+            <div className = "Arrival" id = "Arrival" style={{marginLeft:"5%"}}>
+            <p style={{fontWeight:"bold", fontSize:"120%"}}>Enter arrival date:</p>
               <Datetime />
             </div>
           </div>
-        <div className = "ButtonSearch">
-            <input type='button' id ="SearchButton" value = "Search" onClick={() => {this.initSearch()}}>
+        <div className = "ButtonSearch" style={{marginTop:"43%", transform:"scale(1.5)"}}>
+            <input type='button' id ="SearchButton" value = "Search" style={{"background-color": "#65ACD2",height:"33px", fontWeight:"bold"}} onClick={() => {this.initSearch()}}>
             </input>
         </div>
         </div>   

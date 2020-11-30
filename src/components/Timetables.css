@@ -2,9 +2,19 @@
     border: solid; 
     border-radius: 15px;
     position: absolute;
-    -ms-transform: translate(50%, 50%);
-    transform: translate(50%, 50%);
-    margin-top: 40px;
+}
+
+.Titulo{
+    text-align: center;
+    font-size: 160%;
+    font-weight: bolder;
+}
+
+.ChangeButton{
+    float: right;
+    padding:20px;
+    transform: translate(-10%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
 .Departure{
@@ -13,9 +23,9 @@
     padding: 4px;
     margin-top: 200px;
    z-index: 99999 !important;
-    background: #fff;
+    background: #3696CE;
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
-    border: 1px solid #f9f9f9;
+    border: 3px solid #3696CE;
     left:50%;
     display: block;
 }
@@ -26,20 +36,14 @@
     padding: 4px;
     margin-top: 200px;
     z-index: 99999 !important;
-    background: #fff;
+    background: #3696CE;
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
-    border: 1px solid #f9f9f9;
+    border: 3px solid #3696CE;
     left:70%;
 }
 
 .ButtonSearch{
-    margin-top: 500px;
     position: absolute;
-    margin-left: 700px;
+    margin-left: 45%;
 }
 
-/*.option2{
-    background-image: url(/src/images/train_logo2.png);
-    background-position: 25pt;
-    background-repeat: no-repeat;
-}*/
