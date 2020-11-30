@@ -30,7 +30,7 @@ export class Header extends Component{
     handleSignUp = () =>{
         this.setState({signUp: !this.state.signUp})
     }
-   
+
 
 
 
@@ -45,31 +45,31 @@ export class Header extends Component{
             <h3 style={{"color":"white","fontSize":"250%","marginTop":"4vh","float":"left","marginLeft":"-4vw"}}>FCTravel</h3>
             <>
             {window.location.pathname === "/"?
-                <button className = "Header App-header Buttons" disabled style ={{"marginLeft":"20vw","width":"4.5vw","textDecoration":"underline","pointerEvents":"none"}} >Home <AiOutlineHome/></button>
+                <button className = "Header App-header Buttons" disabled style ={{"marginLeft":"20vw","width":"4.5vw","textDecoration":"underline","pointerEvents":"none"}} ><AiOutlineHome/> Home </button>
                 :
-                <button className = "Header App-header Buttons" style ={{"marginLeft":"20vw","width":"4.5vw"}} onClick={()=>this.changePage("/")}>Home <AiOutlineHome/></button>
+                <button className = "Header App-header Buttons" style ={{"marginLeft":"20vw","width":"4.5vw"}} onClick={()=>this.changePage("/")}><AiOutlineHome/>Home </button>
             }
             </>
 
             <>
                 {window.location.pathname === "/map/"?
-                    <button className = "Header App-header Buttons" disabled style ={{"width":"4.5vw","textDecoration":"underline","pointerEvents":"none"}} >Map <BiMapAlt/></button>
+                    <button className = "Header App-header Buttons" disabled style ={{"width":"4.5vw","textDecoration":"underline","pointerEvents":"none"}} ><BiMapAlt/>Map </button>
                     :
-                    <button className = "Header App-header Buttons" style ={{"width":"4.5vw"}} onClick={()=>this.changePage("/map/")}>Map <BiMapAlt/></button>
+                    <button className = "Header App-header Buttons" style ={{"width":"4.5vw"}} onClick={()=>this.changePage("/map/")}><BiMapAlt/>Map </button>
                 }
             </>
             <>
                 {window.location.pathname === "/timetables/"?
-                    <button className = "Header App-header Buttons" disabled style ={{"width":"7vw","textDecoration":"underline","pointerEvents":"none"}} >Timetables <AiOutlineFieldTime/></button>
+                    <button className = "Header App-header Buttons" disabled style ={{"width":"7vw","textDecoration":"underline","pointerEvents":"none"}} ><AiOutlineFieldTime/>Timetables </button>
                     :
-                    <button className = "Header App-header Buttons" style ={{"width":"7vw"}} onClick={()=>this.changePage("/timetables/")}>Timetables <AiOutlineFieldTime/></button>
+                    <button className = "Header App-header Buttons" style ={{"width":"7vw"}} onClick={()=>this.changePage("/timetables/")}><AiOutlineFieldTime/>Timetables </button>
                 }
             </>
             <>
                 {window.location.pathname === "/help/"?
-                    <button className = "Header App-header Buttons" disabled style ={{"width":"4.5vw","textDecoration":"underline","pointerEvents":"none"}} >Help <AiOutlineQuestionCircle/></button>
+                    <button className = "Header App-header Buttons" disabled style ={{"width":"4.5vw","textDecoration":"underline","pointerEvents":"none"}} ><AiOutlineQuestionCircle/>Help </button>
                     :
-                    <button className = "Header App-header Buttons" style ={{"width":"4.5vw"}} onClick={()=>this.changePage("/help/")}>Help <AiOutlineQuestionCircle/></button>
+                    <button className = "Header App-header Buttons" style ={{"width":"4.5vw"}} onClick={()=>this.changePage("/help/")}><AiOutlineQuestionCircle/>Help </button>
                 }
             </>
             <>
