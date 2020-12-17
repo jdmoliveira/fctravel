@@ -2,6 +2,7 @@ import history from "../history";
 import Datetime from "react-datetime";
 import './Timetables.css'
 import {withRouter,Route} from "react-router-dom";
+import {Button} from "react-bootstrap"
 import React from "react";
 import Footer from './Footer';
 import cp_azambuja_sintra from '../images/cp_azambuja_sintra.png'
@@ -175,8 +176,9 @@ class Timetables extends React.Component {
         <div className = "TransportLines" style={{width:"650px", height:"auto", marginLeft:"5%", marginTop:"10%",}}>
           <div className = "Titulo" style={{marginTop:"15px",marginLeft:"65px", width:"400px", height:"40px", margin:"auto"}}> Public Transport Lines </div>
           <div class = "ChangeButton">
-          <input type='button' id ="SwitchButton" value = "Switch" style={{transform:"scale(1.2)","background-color": "#65ACD2",fontWeight:"bold"}}onClick={() => {this.change(this.getSelected())}} >
-            </input> 
+            <Button id ="SearchButton" value = "Search" style={{"background-color": "#65ACD2","outline":0,"border":"none","boxShadow":"none"}}  onClick={() => {this.change(this.getSelected())}}>Switch
+            </Button>
+
           </div>
           <div className = "Option1">
                 <input type="checkbox" id="check1" name="cp" style={{ transform: "scale(1.5)",marginTop:"35px",marginLeft:"20px", marginBottom:"30px"}} onClick={()=> this.checkClicked("check1")}/>
@@ -223,12 +225,13 @@ class Timetables extends React.Component {
             <p style={{fontWeight:"bold", fontSize:"120%"}}>Enter arrival date:</p>
               <Datetime />
             </div>
+
           </div>
         <div className = "ButtonSearch" style={{marginTop:"43%", transform:"scale(1.5)"}}>
-            <input type='button' id ="SearchButton" value = "Search" style={{"background-color": "#65ACD2",height:"33px", fontWeight:"bold"}} onClick={() => {this.initSearch()}}>
-            </input>
+            <Button id ="SearchButton" value = "Search" style={{"background-color": "#65ACD2","outline":0,"border":"none","boxShadow":"none"}}  onClick={() => {this.initSearch()}}>Search
+            </Button>
         </div>
-        </div>   
+        </div>
       )
       
     }

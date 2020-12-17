@@ -17,15 +17,18 @@
     -ms-transform: translate(-50%, -50%);
 }
 
+
 .Departure{
+    background-color: #65ACD2;
     position: absolute;
     min-width: 250px;
     padding: 4px;
     margin-top: 200px;
    z-index: 99999 !important;
-    background: #3696CE;
+
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
-    border: 3px solid #3696CE;
+    border: 3px solid #65ACD2;
+    border-radius:15px;
     left:50%;
     display: block;
 }
@@ -36,9 +39,10 @@
     padding: 4px;
     margin-top: 200px;
     z-index: 99999 !important;
-    background: #3696CE;
+    background-color: #65ACD2;
     box-shadow: 0 1px 3px rgba(0,0,0,.1);
-    border: 3px solid #3696CE;
+    border: 3px solid #65ACD2;
+    border-radius:15px;
     left:70%;
 }
 
